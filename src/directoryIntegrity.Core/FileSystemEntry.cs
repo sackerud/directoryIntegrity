@@ -18,4 +18,13 @@ namespace directoryIntegrity.Core
             Children.Add(child);
         }
     }
+
+    public class FileSystemEntryComparison
+    {
+        public FileSystemEntry ReferenceFileSystemEntry { get; set; }
+
+        public FileSystemEntry CurrentFileSystemEntry { get; set; }
+
+        public FileSystemEntryComparisonResult Result { get; set; }
+    }
 }
