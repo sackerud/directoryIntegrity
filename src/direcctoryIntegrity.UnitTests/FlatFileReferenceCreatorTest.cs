@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace directoryIntegrity.UnitTests
 {
     [TestClass]
+    [Ignore]
     public class FlatFileReferenceCreatorTest
     {
         [TestMethod]
