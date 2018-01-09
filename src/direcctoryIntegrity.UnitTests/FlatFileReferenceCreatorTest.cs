@@ -4,7 +4,7 @@ using directoryIntegrity.Core;
 using directoryIntegrity.Core.ReferenceFile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace direcctoryIntegrity.UnitTests
+namespace directoryIntegrity.UnitTests
 {
     [TestClass]
     public class FlatFileReferenceCreatorTest

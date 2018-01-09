@@ -3,7 +3,7 @@ using System.Linq;
 using directoryIntegrity.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace direcctoryIntegrity.UnitTests
+namespace directoryIntegrity.UnitTests
 {
     [TestClass]
     public class CompareExtensionTest

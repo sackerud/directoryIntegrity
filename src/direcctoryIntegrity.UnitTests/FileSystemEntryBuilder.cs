@@ -1,6 +1,6 @@
 ﻿using directoryIntegrity.Core;
 
-namespace direcctoryIntegrity.UnitTests
+namespace directoryIntegrity.UnitTests
 {
     internal static class FileSystemEntryBuilder
     {
