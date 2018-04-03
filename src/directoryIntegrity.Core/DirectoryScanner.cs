@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using directoryIntegrity.Core.FileSystem;
+using Directory = System.IO.Directory;
 
 namespace directoryIntegrity.Core
 {
@@ -27,15 +29,15 @@ namespace directoryIntegrity.Core
             }
             else
             {
-                yield return new FileSystemEntry(rootDirectory);
+                yield return new FileSystem.Directory(rootDirectory);
             }
 
             foreach (var file in Directory.GetFiles(rootDirectory))
-                yield return new FileSystemEntry(file);
+                yield return new FileSystem.File(file);
 
             foreach (var dir in Directory.GetDirectories(rootDirectory))
             foreach (var file in GetFileSystemEntries(dir))
-                yield return new FileSystemEntry(file.Path);
+                yield return new FileSystem.File(file.Path);
         }
 
         private void ThrowIfDirectoryDoesNotExist(string directory)

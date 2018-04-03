@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using directoryIntegrity.Core.FileSystem;
 
 namespace directoryIntegrity.Core
 {
