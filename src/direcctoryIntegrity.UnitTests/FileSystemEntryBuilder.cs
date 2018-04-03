@@ -1,4 +1,5 @@
-﻿using directoryIntegrity.Core;
+﻿using System.IO;
+using directoryIntegrity.Core;
 
 namespace directoryIntegrity.UnitTests
 {
@@ -11,7 +12,7 @@ namespace directoryIntegrity.UnitTests
 
         internal static FileSystemEntry AddFile(this FileSystemEntry parentDir, string filename)
         {
-            parentDir.AddChild(new FileSystemEntry(filename));
+            parentDir.AddChild(new FileSystemEntry(Path.Combine(parentDir.Path, filename)));
             return parentDir;
         }
 

@@ -48,6 +48,7 @@ namespace directoryIntegrity.UnitTests
 
             Assert.AreEqual(1, actual.Count());
             Assert.AreEqual(FileSystemEntryComparisonResult.Removed, actual.First().Result);
+            Assert.AreEqual(@"C:\test\file1.txt", actual.First().ReferenceFileSystemEntry.Path);
         }
     }
 }
