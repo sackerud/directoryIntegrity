@@ -19,18 +19,15 @@ namespace directoryIntegrity.Core
             }
         }
 
-        private static IList<IFileSystemEntry> _currentEntries;
-        private static IList<IFileSystemEntry> _referenceEntries;
-
         public static IEnumerable<FileSystemEntryComparison> CompareTo(this IFileSystemEntry referenceEntry,
                                                                        IFileSystemEntry currentEntry)
         {
-            _currentEntries = currentEntry.Traverse().ToList();
-            _referenceEntries = referenceEntry.Traverse().ToList();
+            var currentEntries = currentEntry.Traverse().ToList();
+            var referenceEntries = referenceEntry.Traverse().ToList();
 
-            foreach (var refEntry in _referenceEntries)
+            foreach (var refEntry in referenceEntries)
             {
-                if (_currentEntries.Any(c => c.Path == refEntry.Path))
+                if (currentEntries.Any(c => c.Path == refEntry.Path))
                 {
                     yield return new FileSystemEntryComparison
                     {
@@ -40,7 +37,7 @@ namespace directoryIntegrity.Core
                     continue;
                 }
 
-                var newLocations = _currentEntries.Where(c => c.Name == refEntry.Name).ToList();
+                var newLocations = currentEntries.Where(c => c.Name == refEntry.Name).ToList();
 
                 if (newLocations.Any())
                 {

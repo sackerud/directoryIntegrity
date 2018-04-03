@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using directoryIntegrity.Core.Scan;
 
 namespace directoryIntegrity.Core.ReferenceFile
 {
