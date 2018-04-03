@@ -34,5 +34,20 @@ namespace directoryIntegrity.UnitTests
             // Assert
             Assert.IsTrue(actual.All(a => a.Result == FileSystemEntryComparisonResult.Intact));
         }
+
+        [TestMethod]
+        public void If_1_file_is_missing_comparison_should_return_removed()
+        {
+            var root1 = FileSystemEntryBuilder.CreateRoot(@"C:\test");
+
+            root1.AddFile("file1.txt");
+
+            var root2 = FileSystemEntryBuilder.CreateRoot(@"C:\test");
+
+            var actual = root1.CompareTo(root2);
+
+            Assert.AreEqual(1, actual.Count());
+            Assert.AreEqual(FileSystemEntryComparisonResult.Removed, actual.First().Result);
+        }
     }
 }

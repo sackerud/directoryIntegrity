@@ -21,7 +21,7 @@ namespace directoryIntegrity.Core
 
     public class FileSystemEntryComparison
     {
-        public FileSystemEntry ReferenceFileSystemEntry { get; set; }
+        public IFileSystemEntry ReferenceFileSystemEntry { get; set; }
 
         public FileSystemEntry CurrentFileSystemEntry { get; set; }
 
