@@ -3,6 +3,7 @@ using System.IO;
 using directoryIntegrity.Core;
 using directoryIntegrity.Core.ReferenceFile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace directoryIntegrity.UnitTests
 {
@@ -28,6 +29,14 @@ namespace directoryIntegrity.UnitTests
 
             // Assert
             Assert.IsTrue(File.Exists(@"C:\temp\dirref.txt"));
+        }
+
+        [TestMethod]
+        public void CreateJsonReferenceFile_should_create_file_on_disk()
+        {
+            var scanner = new DirectoryScanner(@"C:\Users\xxsackej\AppData\Local\Temp");
+            new JsonReferenceFileCreator(scanner, Formatting.Indented).CreateReferenceFile(@"C:\temp\dirref.json");
+            Assert.IsTrue(File.Exists(@"C:\temp\dirref.json"));
         }
     }
 }
