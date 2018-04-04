@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using directoryIntegrity.Core.Scan;
 using Newtonsoft.Json;
 
 namespace directoryIntegrity.Core.ReferenceFile

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
-using directoryIntegrity.Core;
 using directoryIntegrity.Core.ReferenceFile;
+using directoryIntegrity.Core.Scan;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 
 namespace directoryIntegrity.UnitTests
 {
     [TestClass]
-    [Ignore]
+    [Ignore("This should be moved to a separate integration test project")]
     public class FlatFileReferenceCreatorTest
     {
         [TestMethod]

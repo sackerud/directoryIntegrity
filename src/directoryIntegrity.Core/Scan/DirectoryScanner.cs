@@ -3,7 +3,7 @@ using System.IO;
 using directoryIntegrity.Core.FileSystem;
 using Directory = System.IO.Directory;
 
-namespace directoryIntegrity.Core
+namespace directoryIntegrity.Core.Scan
 {
     public class DirectoryScanner : IDirectoryScanner
     {
