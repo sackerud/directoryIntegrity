@@ -5,6 +5,7 @@
         NotInitialized = 0,
         Intact = 1,
         Moved = 2,
-        Removed = 3
+        Removed = 3,
+        Added = 4
     }
 }

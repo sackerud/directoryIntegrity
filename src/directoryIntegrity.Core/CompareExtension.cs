@@ -32,7 +32,8 @@ namespace directoryIntegrity.Core
                     yield return new FileSystemEntryComparison
                     {
                         Result = FileSystemEntryComparisonResult.Intact,
-                        ReferenceFileSystemEntry = refEntry
+                        ReferenceFileSystemEntry = refEntry,
+                        CurrentFileSystemEntries = currentEntries.Where(c => c.Path == refEntry.Path)
                     };
                     continue;
                 }
@@ -55,6 +56,21 @@ namespace directoryIntegrity.Core
                     Result = FileSystemEntryComparisonResult.Removed,
                     ReferenceFileSystemEntry = refEntry
                 };
+            }
+
+            var addedEntries = currentEntries.Except(referenceEntries, new FileSystemEntryNameComparer()).ToList();
+
+            if (addedEntries.Any())
+            {
+                foreach (var addedEntry in addedEntries)
+                {
+                    yield return new FileSystemEntryComparison
+                    {
+                        Result = FileSystemEntryComparisonResult.Added,
+                        ReferenceFileSystemEntry = null,
+                        CurrentFileSystemEntries = new List<IFileSystemEntry> { addedEntry }
+                    };
+                }
             }
         }
     }

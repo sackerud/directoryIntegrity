@@ -85,5 +85,21 @@ namespace directoryIntegrity.UnitTests
             Assert.AreEqual(FileSystemEntryComparisonResult.Removed, subfolderComparison.Result);
             Assert.AreEqual(@"C:\test\subfolder", subfolderComparison.ReferenceFileSystemEntry.Path);
         }
+
+        [TestMethod]
+        public void If_1_file_is_added_comparison_should_return_added()
+        {
+            var root1 = FileSystemEntryBuilder.CreateRoot(@"C:\test");
+
+            var root2 = FileSystemEntryBuilder.CreateRoot(@"C:\test")
+                .AddFile("file1.txt");
+
+            var actual = root1.CompareTo(root2).ToList();
+
+            var file1Comparison = actual.FirstOrDefault(f => f.CurrentFileSystemEntries.Single().Path == @"C:\test\file1.txt");
+            Assert.IsNotNull(file1Comparison);
+            Assert.AreEqual(FileSystemEntryComparisonResult.Added, file1Comparison.Result);
+            Assert.AreEqual(@"C:\test\file1.txt", file1Comparison.CurrentFileSystemEntries.Single().Path);
+        }
     }
 }

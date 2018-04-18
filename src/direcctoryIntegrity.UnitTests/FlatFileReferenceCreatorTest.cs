@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace directoryIntegrity.UnitTests
 {
     [TestClass]
-    [Ignore("This should be moved to a separate integration test project")]
+    //[Ignore("This should be moved to a separate integration test project")]
     public class FlatFileReferenceCreatorTest
     {
         [TestMethod]
@@ -34,7 +34,7 @@ namespace directoryIntegrity.UnitTests
         [TestMethod]
         public void CreateJsonReferenceFile_should_create_file_on_disk()
         {
-            var scanner = new DirectoryScanner(@"C:\Users\xxsackej\AppData\Local\Temp");
+            var scanner = new DirectoryScanner(@"C:\temp");
             new JsonReferenceFileCreator(scanner, Formatting.Indented).CreateReferenceFile(@"C:\temp\dirref.json");
             Assert.IsTrue(File.Exists(@"C:\temp\dirref.json"));
         }
