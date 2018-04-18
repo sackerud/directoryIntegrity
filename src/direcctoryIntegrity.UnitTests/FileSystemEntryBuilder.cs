@@ -16,15 +16,21 @@ namespace directoryIntegrity.UnitTests
             return parentDir;
         }
 
+        internal static FileSystemEntry AddDir(this FileSystemEntry parentDir, string dirname)
+        {
+            parentDir.AddChild(new Core.FileSystem.Directory(Path.Combine(parentDir.Path, dirname)));
+            return parentDir;
+        }
+
         internal static FileSystemEntry AddDirAndReturnParent(this FileSystemEntry parentDir, string dirname)
         {
-            parentDir.AddChild(new Core.FileSystem.File(Path.Combine(parentDir.Path, dirname)));
+            parentDir.AddChild(new Core.FileSystem.Directory(Path.Combine(parentDir.Path, dirname)));
             return parentDir;
         }
 
         internal static FileSystemEntry AddDirAndReturnChild(this FileSystemEntry parentDir, string dirname)
         {
-            var childDir = new Core.FileSystem.File(Path.Combine(parentDir.Path, dirname));
+            var childDir = new Core.FileSystem.Directory(Path.Combine(parentDir.Path, dirname));
             parentDir.AddChild(childDir);
             return childDir;
         }
