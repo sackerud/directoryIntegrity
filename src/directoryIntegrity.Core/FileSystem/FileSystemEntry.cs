@@ -11,7 +11,6 @@ namespace directoryIntegrity.Core.FileSystem
 
         public abstract string Name { get; }
 
-        [JsonIgnore]
         public abstract bool IsDirectory { get; set; }
 
         protected FileSystemEntry(string rootPath)
