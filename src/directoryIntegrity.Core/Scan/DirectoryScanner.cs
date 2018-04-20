@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using directoryIntegrity.Core.FileSystem;
 using Directory = System.IO.Directory;
 
@@ -7,37 +8,40 @@ namespace directoryIntegrity.Core.Scan
 {
     public class DirectoryScanner : IDirectoryScanner
     {
-        private readonly string _rootDirectory;
         private bool _isAtRootLevel = true;
+        private readonly IFileSystemEntry _rootEntry;
 
         public DirectoryScanner(string rootDirectory)
         {
-            _rootDirectory = rootDirectory;
+            
             ThrowIfDirectoryDoesNotExist(rootDirectory);
+            _rootEntry = new FileSystem.Directory(rootDirectory);
         }
 
         public IEnumerable<IFileSystemEntry> Scan()
         {
-            return GetFileSystemEntries(_rootDirectory);
+            GetFileSystemEntries(_rootEntry);
+            return new List<IFileSystemEntry> {_rootEntry};
         }
 
-        private IEnumerable<IFileSystemEntry> GetFileSystemEntries(string rootDirectory)
+        private void GetFileSystemEntries(IFileSystemEntry rootDirectory)
         {
-            if (_isAtRootLevel)
-            {
-                _isAtRootLevel = false;
-            }
-            else
-            {
-                yield return new FileSystem.Directory(rootDirectory);
-            }
+            var dirs = Directory.GetDirectories(rootDirectory.Path);
 
-            foreach (var file in Directory.GetFiles(rootDirectory))
-                yield return new FileSystem.File(file);
+            foreach (var dir in dirs)
+                rootDirectory.Children.Add(CreateDir(dir));
 
-            foreach (var dir in Directory.GetDirectories(rootDirectory))
-            foreach (var file in GetFileSystemEntries(dir))
-                yield return new FileSystem.File(file.Path);
+            foreach (var file in Directory.GetFiles(rootDirectory.Path))
+                rootDirectory.Children.Add(new FileSystem.File(file));
+
+            foreach (var dir in dirs)
+                GetFileSystemEntries(rootDirectory.Children.Single(c => c.Path == dir));
+        }
+
+        private static FileSystem.Directory CreateDir(string dir)
+        {
+            var d = new FileSystem.Directory(dir);
+            return d;
         }
 
         private void ThrowIfDirectoryDoesNotExist(string directory)

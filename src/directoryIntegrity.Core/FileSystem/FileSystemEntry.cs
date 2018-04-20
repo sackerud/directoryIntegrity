@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace directoryIntegrity.Core.FileSystem
 {
@@ -10,6 +11,7 @@ namespace directoryIntegrity.Core.FileSystem
 
         public abstract string Name { get; }
 
+        [JsonIgnore]
         public abstract bool IsDirectory { get; }
 
         protected FileSystemEntry(string rootPath)
@@ -21,13 +23,6 @@ namespace directoryIntegrity.Core.FileSystem
         {
             Children.Add(child);
         }
-    }
-
-    public class Directory : FileSystemEntry
-    {
-        public Directory(string rootPath) : base(rootPath) {}
-        public override string Name => System.IO.Path.GetDirectoryName(Path);
-        public override bool IsDirectory => true;
     }
 
     public class File : FileSystemEntry {
