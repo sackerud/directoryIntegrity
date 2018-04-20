@@ -1,6 +1,6 @@
 ﻿namespace directoryIntegrity.Core.FileSystem
 {
-    public class Directory : FileSystemEntry
+    public class Directory : GenericFileSystemEntry
     {
         public Directory(string rootPath) : base(rootPath) {}
         public override string Name => System.IO.Path.GetFileName(Path);
