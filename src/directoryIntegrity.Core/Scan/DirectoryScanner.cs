@@ -8,7 +8,6 @@ namespace directoryIntegrity.Core.Scan
 {
     public class DirectoryScanner : IDirectoryScanner
     {
-        private bool _isAtRootLevel = true;
         private readonly IFileSystemEntry _rootEntry;
 
         public DirectoryScanner(string rootDirectory)
@@ -26,22 +25,31 @@ namespace directoryIntegrity.Core.Scan
 
         private void GetFileSystemEntries(IFileSystemEntry rootDirectory)
         {
-            var dirs = Directory.GetDirectories(rootDirectory.Path);
+            var dirs = ListDirectories(rootDirectory);
 
             foreach (var dir in dirs)
                 rootDirectory.Children.Add(CreateDir(dir));
 
             foreach (var file in Directory.GetFiles(rootDirectory.Path))
-                rootDirectory.Children.Add(new FileSystem.File(file));
+                rootDirectory.Children.Add(CreateFile(file));
 
             foreach (var dir in dirs)
                 GetFileSystemEntries(rootDirectory.Children.Single(c => c.Path == dir));
         }
 
+        private static string[] ListDirectories(IFileSystemEntry rootDirectory)
+        {
+            return Directory.GetDirectories(rootDirectory.Path);
+        }
+
         private static FileSystem.Directory CreateDir(string dir)
         {
-            var d = new FileSystem.Directory(dir);
-            return d;
+            return new FileSystem.Directory(dir);
+        }
+
+        private static FileSystemEntry CreateFile(string dir)
+        {
+            return new FileSystem.File(dir);
         }
 
         private void ThrowIfDirectoryDoesNotExist(string directory)

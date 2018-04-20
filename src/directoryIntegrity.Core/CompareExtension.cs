@@ -1,23 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using directoryIntegrity.Core.FileSystem;
+using Newtonsoft.Json;
 
 namespace directoryIntegrity.Core
 {
     public static class CompareExtension
     {
-        public static IEnumerable<IFileSystemEntry> Traverse(this IFileSystemEntry root)
-        {
-            var stack = new Stack<IFileSystemEntry>();
-            stack.Push(root);
-            while (stack.Count > 0)
-            {
-                var current = stack.Pop();
-                yield return current;
-                foreach (var child in current.Children)
-                    stack.Push(child);
-            }
-        }
 
         public static IEnumerable<FileSystemEntryComparison> CompareTo(this IFileSystemEntry referenceEntry,
                                                                        IFileSystemEntry currentEntry)
@@ -71,6 +60,27 @@ namespace directoryIntegrity.Core
                         CurrentFileSystemEntries = new List<IFileSystemEntry> { addedEntry }
                     };
                 }
+            }
+        }
+
+        public static IEnumerable<IFileSystemEntry> Deserialize(this string filepath)
+        {
+            var contents = System.IO.File.ReadAllText(filepath);
+            // Must handle deserializing to File/Directory, see: http://skrift.io/articles/archive/bulletproof-interface-deserialization-in-jsonnet/
+            var fseList = JsonConvert.DeserializeObject<List<GenericFileSystemEntry>>(contents);
+            return fseList;
+        }
+
+        private static IEnumerable<IFileSystemEntry> Traverse(this IFileSystemEntry root)
+        {
+            var stack = new Stack<IFileSystemEntry>();
+            stack.Push(root);
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                yield return current;
+                foreach (var child in current.Children)
+                    stack.Push(child);
             }
         }
     }

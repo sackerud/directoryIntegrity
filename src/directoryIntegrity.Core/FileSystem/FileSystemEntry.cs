@@ -12,36 +12,29 @@ namespace directoryIntegrity.Core.FileSystem
         public abstract string Name { get; }
 
         [JsonIgnore]
-        public abstract bool IsDirectory { get; }
+        public abstract bool IsDirectory { get; set; }
 
         protected FileSystemEntry(string rootPath)
         {
             Path = rootPath;
         }
 
-        public void AddChild(IFileSystemEntry child)
+        public void AddChild(FileSystemEntry child)
         {
             Children.Add(child);
         }
     }
 
-    public class File : FileSystemEntry {
-        public File(string rootPath) : base(rootPath) {}
-        public override string Name => System.IO.Path.GetFileName(Path);
-        public override bool IsDirectory => false;
-    }
-
-    public class FileSystemEntryComparison
+    public class GenericFileSystemEntry : FileSystemEntry
     {
-        public IFileSystemEntry ReferenceFileSystemEntry { get; set; }
-
-        public IEnumerable<IFileSystemEntry> CurrentFileSystemEntries { get; set; }
-
-        public FileSystemEntryComparisonResult Result { get; set; }
-
-        public override string ToString()
+        public GenericFileSystemEntry(string rootPath) : base(rootPath)
         {
-            return $"{ReferenceFileSystemEntry.Path} - {Result.ToString()}";
         }
+
+        public override string Name => IsDirectory ?
+            System.IO.Path.GetDirectoryName(Path) :
+            System.IO.Path.GetFileName(Path);
+
+        public override bool IsDirectory { get; set; }
     }
 }

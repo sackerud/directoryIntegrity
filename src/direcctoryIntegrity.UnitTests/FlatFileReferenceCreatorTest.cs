@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using directoryIntegrity.Core;
 using directoryIntegrity.Core.ReferenceFile;
 using directoryIntegrity.Core.Scan;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,7 +10,7 @@ using Newtonsoft.Json;
 namespace directoryIntegrity.UnitTests
 {
     [TestClass]
-    [Ignore("This should be moved to a separate integration test project")]
+    //[Ignore("This should be moved to a separate integration test project")]
     public class FlatFileReferenceCreatorTest
     {
         [TestMethod]
@@ -35,8 +37,12 @@ namespace directoryIntegrity.UnitTests
         public void CreateJsonReferenceFile_should_create_file_on_disk()
         {
             var scanner = new DirectoryScanner(@"C:\temp");
-            new JsonReferenceFileCreator(scanner, Formatting.Indented).CreateReferenceFile(@"C:\temp\dirref.json");
-            Assert.IsTrue(File.Exists(@"C:\temp\dirref.json"));
+            var referenceFileOutputPath = @"C:\temp\dirref.json";
+            new JsonReferenceFileCreator(scanner, Formatting.Indented).CreateReferenceFile(referenceFileOutputPath);
+            Assert.IsTrue(File.Exists(referenceFileOutputPath));
+
+            var actual = referenceFileOutputPath.Deserialize();
+            Assert.IsTrue(actual.Any());
         }
     }
 }
