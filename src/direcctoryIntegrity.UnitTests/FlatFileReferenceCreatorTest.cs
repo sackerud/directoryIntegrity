@@ -17,6 +17,7 @@ namespace directoryIntegrity.UnitTests
         [ExpectedException(typeof(IOException))]
         public void CreateReferenceFile_that_points_to_non_existing_dir_should_throw()
         {
+            // ReSharper disable once ObjectCreationAsStatement
             new StreamingDirectoryScanner(Guid.NewGuid().ToString());
         }
 
