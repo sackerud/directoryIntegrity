@@ -71,6 +71,11 @@ namespace directoryIntegrity.Core
             return fseList;
         }
 
+        public static int CountAllEntries(this IFileSystemEntry listOfEntries)
+        {
+            return listOfEntries.Traverse().Count();
+        }
+
         private static IEnumerable<IFileSystemEntry> Traverse(this IFileSystemEntry root)
         {
             var stack = new Stack<IFileSystemEntry>();
