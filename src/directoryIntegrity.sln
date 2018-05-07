@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.Core", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.UnitTests", "direcctoryIntegrity.UnitTests\directoryIntegrity.UnitTests.csproj", "{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "directoryIntegrity.ConsoleApp", "directoryIntegrity.Console\directoryIntegrity.ConsoleApp.csproj", "{C6A24F82-9566-4CE4-BFBB-91D15B229F50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A24F82-9566-4CE4-BFBB-91D15B229F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A24F82-9566-4CE4-BFBB-91D15B229F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A24F82-9566-4CE4-BFBB-91D15B229F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A24F82-9566-4CE4-BFBB-91D15B229F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
