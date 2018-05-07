@@ -18,7 +18,7 @@ namespace directoryIntegrity.ConsoleApp
         [Option('r',
                 "referencefile",
                 Required = false, 
-                HelpText = "The reference file used for comparison with the scan of a directory"]
+                HelpText = "The reference file used for comparison with the scan of a directory")]
         public string ReferenceFile { get; set; }
 
         [Option('d', "dirtoscan", HelpText = "The directory to create a shapshot of")]
