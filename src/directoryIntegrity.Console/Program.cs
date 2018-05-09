@@ -88,10 +88,10 @@ namespace directoryIntegrity.ConsoleApp
 
         private static void PrintComparison(IEnumerable<FileSystemEntryComparison> comparison)
         {
-            Console.WriteLine($@"Intact folders: {comparison.Count(c => c.Result == FileSystemEntryComparisonResult.Intact
-                                                                       && c.ReferenceFileSystemEntry.IsDirectory)}");
-            Console.WriteLine($@"Intact files: {comparison.Count(c => c.Result == FileSystemEntryComparisonResult.Intact
-                                                                        && !c.ReferenceFileSystemEntry.IsDirectory)}");
+            var comparisonResult = new DirectoryIntegrityResult(comparison);
+
+            Console.WriteLine($@"Intact folders: {comparisonResult.IntactDirectoriesCount}");
+            Console.WriteLine($@"Intact files: {comparisonResult.IntactFilesCount}");
 
             Console.WriteLine("The following files and directories has been removed:");
 

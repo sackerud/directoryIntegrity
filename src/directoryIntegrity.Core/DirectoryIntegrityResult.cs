@@ -20,21 +20,41 @@ namespace directoryIntegrity.Core
 
         public IEnumerable<FileSystemEntryComparison> ComparisonRows { get; set; }
 
-        public int IntactDirectoryCount =>
+        public int AddedDirectoriesCount =>
             ComparisonRows.Count(Directories(FileSystemEntryComparisonResult.Added));
 
-        public int AdddedDirectoryCount =>
-            ComparisonRows.Count(Directories(FileSystemEntryComparisonResult.Added));
+        public int AddedFilesCount =>
+            ComparisonRows.Count(Files(FileSystemEntryComparisonResult.Added));
 
-        public int RemovedDirectoryCount =>
+        public int IntactDirectoriesCount =>
+            ComparisonRows.Count(Directories(FileSystemEntryComparisonResult.Intact));
+
+        public int IntactFilesCount =>
+            ComparisonRows.Count(Files(FileSystemEntryComparisonResult.Intact));
+
+        public int RemovedDirectoriesCount =>
             ComparisonRows.Count(Directories(FileSystemEntryComparisonResult.Removed));
 
-        public int MovedDirectoryCount =>
+        public int RemovedFilesCount =>
+            ComparisonRows.Count(Files(FileSystemEntryComparisonResult.Removed));
+
+        public int MovedDirectoriesCount =>
             ComparisonRows.Count(Directories(FileSystemEntryComparisonResult.Moved));
+
+        public int MovedFilesCount =>
+            ComparisonRows.Count(Files(FileSystemEntryComparisonResult.Moved));
 
         public int TotalDirectoryCount => ComparisonRows.Count(r => r.ReferenceFileSystemEntry.IsDirectory);
 
+        public int TotalFileCount => ComparisonRows.Count(r => !r.ReferenceFileSystemEntry.IsDirectory);
+
         private static Func<FileSystemEntryComparison, bool> Directories(FileSystemEntryComparisonResult comparisonResult)
+        {
+            return r => r.Result == comparisonResult
+                        && r.ReferenceFileSystemEntry.IsDirectory;
+        }
+
+        private static Func<FileSystemEntryComparison, bool> Files(FileSystemEntryComparisonResult comparisonResult)
         {
             return r => r.Result == comparisonResult
                         && !r.ReferenceFileSystemEntry.IsDirectory;
