@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using CommandLine;
 using directoryIntegrity.Core;
 using directoryIntegrity.Core.FileSystem;
@@ -19,7 +21,25 @@ namespace directoryIntegrity.ConsoleApp
 
         static int Main(string[] args)
         {
-            return ConsumeArguments(args);
+            var sw = Stopwatch.StartNew();
+            var exitCode = ConsumeArguments(args);
+            Console.WriteLine($"This operation took {PrintDuration(sw.Elapsed)}");
+            return exitCode;
+        }
+
+        private static string PrintDuration(TimeSpan duration)
+        {
+            var sb = new StringBuilder();
+
+            if (duration.TotalHours >= 1)
+                sb.Append($"{duration.TotalHours}h ");
+
+            if (duration.Seconds >= 1)
+                sb.Append($"{duration.Seconds}s ");
+
+            sb.Append($"{duration.Milliseconds}ms");
+
+            return sb.ToString();
         }
 
         private static int ConsumeArguments(string[] args)
