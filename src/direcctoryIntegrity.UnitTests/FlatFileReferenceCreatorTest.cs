@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace directoryIntegrity.UnitTests
 {
     [TestClass]
-    //[Ignore("This should be moved to a separate integration test project")]
+    [Ignore("This should be moved to a separate integration test project")]
     public class FlatFileReferenceCreatorTest
     {
         [TestMethod]

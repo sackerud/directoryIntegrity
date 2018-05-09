@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using directoryIntegrity.Core.FileSystem;
 using Newtonsoft.Json;
@@ -7,6 +8,7 @@ namespace directoryIntegrity.Core
 {
     public static class CompareExtension
     {
+        private static StringComparison _stringComparison;
 
         public static IEnumerable<FileSystemEntryComparison> CompareTo(this IFileSystemEntry referenceEntry,
                                                                        IFileSystemEntry currentEntry)
@@ -16,18 +18,22 @@ namespace directoryIntegrity.Core
 
             foreach (var refEntry in referenceEntries)
             {
-                if (currentEntries.Any(c => c.Path == refEntry.Path))
+                if (currentEntries.Any(c =>
+                {
+                    _stringComparison = StringComparison.OrdinalIgnoreCase;
+                    return c.Path.Equals(refEntry.Path, _stringComparison);
+                }))
                 {
                     yield return new FileSystemEntryComparison
                     {
                         Result = FileSystemEntryComparisonResult.Intact,
                         ReferenceFileSystemEntry = refEntry,
-                        CurrentFileSystemEntries = currentEntries.Where(c => c.Path == refEntry.Path)
+                        CurrentFileSystemEntries = currentEntries.Where(c => c.Path.Equals(refEntry.Path, _stringComparison))
                     };
                     continue;
                 }
 
-                var newLocations = currentEntries.Where(c => c.Name == refEntry.Name).ToList();
+                var newLocations = currentEntries.Where(c => c.Name.Equals(refEntry.Name, _stringComparison)).ToList();
 
                 if (newLocations.Any())
                 {
