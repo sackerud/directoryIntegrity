@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using CommandLine;
 using directoryIntegrity.Core;
 using directoryIntegrity.Core.FileSystem;
+using directoryIntegrity.Core.Formatters;
 using directoryIntegrity.Core.ReferenceFile;
 using directoryIntegrity.Core.Scan;
 using Newtonsoft.Json;
@@ -23,23 +23,8 @@ namespace directoryIntegrity.ConsoleApp
         {
             var sw = Stopwatch.StartNew();
             var exitCode = ConsumeArguments(args);
-            Console.WriteLine($"This operation took {PrintDuration(sw.Elapsed)}");
+            Console.WriteLine($"This operation took {sw.Elapsed.Format()}");
             return exitCode;
-        }
-
-        private static string PrintDuration(TimeSpan duration)
-        {
-            var sb = new StringBuilder();
-
-            if (duration.TotalHours >= 1)
-                sb.Append($"{duration.TotalHours}h ");
-
-            if (duration.Seconds >= 1)
-                sb.Append($"{duration.Seconds}s ");
-
-            sb.Append($"{duration.Milliseconds}ms");
-
-            return sb.ToString();
         }
 
         private static int ConsumeArguments(string[] args)
