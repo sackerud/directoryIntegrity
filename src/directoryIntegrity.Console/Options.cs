@@ -21,6 +21,8 @@ namespace directoryIntegrity.ConsoleApp
                 HelpText = "The reference file used for comparison with the scan of a directory")]
         public string ReferenceFile { get; set; }
 
+        public bool ReferenceFileIsSpecified => !string.IsNullOrWhiteSpace(ReferenceFile);
+
         [Option('d', "dirtoscan", Required = true, HelpText = "The directory to create a shapshot of")]
         public string DirectoryToScan { get; set; }
     }

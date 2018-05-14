@@ -38,7 +38,7 @@ namespace directoryIntegrity.ConsoleApp
 
         private static int HandleParseError(IEnumerable<Error> errs)
         {
-            return -1;
+            return ExitCodes.INVALID_ARGS;
         }
 
         private static int CreateReferenceFile(CreateReferenceFileOptions opts)
@@ -56,7 +56,7 @@ namespace directoryIntegrity.ConsoleApp
             new JsonReferenceFileCreator(scanner, Formatting.Indented)
                 .CreateReferenceFile(_createRefFileOptions.ReferenceFilepath);
 
-            return 0;
+            return ExitCodes.SUCCESS;
         }
 
         private static int ScanDirectory(ScanOptions opts)
@@ -64,12 +64,13 @@ namespace directoryIntegrity.ConsoleApp
             if (!Directory.Exists(opts.DirectoryToScan))
             {
                 Console.WriteLine($"{opts.DirectoryToScan} does not exist");
-                return -1;
+                return ExitCodes.SCAN_DIR_DOES_NOT_EXIST;
             }
 
-            if (!File.Exists(opts.ReferenceFile))
+            if (opts.ReferenceFileIsSpecified && !File.Exists(opts.ReferenceFile))
             {
                 Console.WriteLine($"{opts.ReferenceFile} does not exist");
+                return ExitCodes.REF_FILE_DOES_NOT_EXIST;
             }
 
             _scanOptions = opts;
@@ -83,7 +84,7 @@ namespace directoryIntegrity.ConsoleApp
 
             PrintComparison(comparison);
 
-            return 0;
+            return ExitCodes.SUCCESS;
         }
 
         private static void PrintComparison(IEnumerable<FileSystemEntryComparison> comparison)
@@ -110,5 +111,14 @@ namespace directoryIntegrity.ConsoleApp
                 }
             }
         }
+    }
+
+    public class ExitCodes
+    {
+        public const int REF_FILE_DOES_NOT_EXIST = 400;
+        public const int SCAN_DIR_DOES_NOT_EXIST = 404;
+        public const int INVALID_ARGS = 501;
+
+        public const int SUCCESS = 0;
     }
 }
