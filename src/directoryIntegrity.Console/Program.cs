@@ -38,7 +38,7 @@ namespace directoryIntegrity.ConsoleApp
 
         private static int HandleParseError(IEnumerable<Error> errs)
         {
-            return ExitCodes.INVALID_ARGS;
+            return ExitCodes.InvalidArgs;
         }
 
         private static int CreateReferenceFile(CreateReferenceFileOptions opts)
@@ -56,7 +56,7 @@ namespace directoryIntegrity.ConsoleApp
             new JsonReferenceFileCreator(scanner, Formatting.Indented)
                 .CreateReferenceFile(_createRefFileOptions.ReferenceFilepath);
 
-            return ExitCodes.SUCCESS;
+            return ExitCodes.Success;
         }
 
         private static int ScanDirectory(ScanOptions opts)
@@ -64,13 +64,13 @@ namespace directoryIntegrity.ConsoleApp
             if (!Directory.Exists(opts.DirectoryToScan))
             {
                 Console.WriteLine($"{opts.DirectoryToScan} does not exist");
-                return ExitCodes.SCAN_DIR_DOES_NOT_EXIST;
+                return ExitCodes.ScanDirDoesNotExist;
             }
 
             if (opts.ReferenceFileIsSpecified && !File.Exists(opts.ReferenceFile))
             {
                 Console.WriteLine($"{opts.ReferenceFile} does not exist");
-                return ExitCodes.REF_FILE_DOES_NOT_EXIST;
+                return ExitCodes.RefFileDoesNotExist;
             }
 
             _scanOptions = opts;
@@ -82,12 +82,12 @@ namespace directoryIntegrity.ConsoleApp
 
             var comparison = scanResult.FirstOrDefault().CompareTo(referenceFileContents.FirstOrDefault());
 
-            PrintComparison(comparison);
+            PrintComparison(comparison.ToList());
 
-            return ExitCodes.SUCCESS;
+            return ExitCodes.Success;
         }
 
-        private static void PrintComparison(IEnumerable<FileSystemEntryComparison> comparison)
+        private static void PrintComparison(IList<FileSystemEntryComparison> comparison)
         {
             var comparisonResult = new DirectoryIntegrityResult(comparison);
 
@@ -98,9 +98,9 @@ namespace directoryIntegrity.ConsoleApp
             PrintMoved(comparison);
         }
 
-        private static void PrintMoved(IEnumerable<FileSystemEntryComparison> comparison)
+        private static void PrintMoved(IList<FileSystemEntryComparison> comparison)
         {
-            var movedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved);
+            var movedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved).ToList();
 
             if (!movedEntries.Any()) return;
 
@@ -115,9 +115,9 @@ namespace directoryIntegrity.ConsoleApp
             }
         }
 
-        private static void PrintRemoved(IEnumerable<FileSystemEntryComparison> comparison)
+        private static void PrintRemoved(IList<FileSystemEntryComparison> comparison)
         {
-            var removedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed);
+            var removedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed).ToList();
 
             if (!removedEntries.Any()) return;
 
@@ -132,10 +132,10 @@ namespace directoryIntegrity.ConsoleApp
 
     public class ExitCodes
     {
-        public const int REF_FILE_DOES_NOT_EXIST = 400;
-        public const int SCAN_DIR_DOES_NOT_EXIST = 404;
-        public const int INVALID_ARGS = 501;
+        public const int RefFileDoesNotExist = 400;
+        public const int ScanDirDoesNotExist = 404;
+        public const int InvalidArgs = 501;
 
-        public const int SUCCESS = 0;
+        public const int Success = 0;
     }
 }
