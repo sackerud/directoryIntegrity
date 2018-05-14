@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace directoryIntegrity.Core.FileSystem
 {
@@ -12,7 +13,11 @@ namespace directoryIntegrity.Core.FileSystem
 
         public override string ToString()
         {
-            return $"{ReferenceFileSystemEntry.Path} - {Result.ToString()}";
+            var fsEntry = ReferenceFileSystemEntry == null
+                            ? string.Join("/", CurrentFileSystemEntries.Select(c => c.Path))
+                            : ReferenceFileSystemEntry.Path;
+
+            return $"{fsEntry} - {Result.ToString()}";
         }
     }
 }

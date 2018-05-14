@@ -80,7 +80,7 @@ namespace directoryIntegrity.ConsoleApp
 
             var referenceFileContents = new JsonReferenceFileReader().Read(_scanOptions.ReferenceFile);
 
-            var comparison = scanResult.FirstOrDefault().CompareTo(referenceFileContents.FirstOrDefault());
+            var comparison = referenceFileContents.FirstOrDefault().CompareTo(scanResult.FirstOrDefault());
 
             PrintComparison(comparison.ToList());
 

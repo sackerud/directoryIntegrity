@@ -87,6 +87,40 @@ namespace directoryIntegrity.UnitTests
         }
 
         [TestMethod]
+        public void If_1_directory_is_renamed_comparison_should_return_removed()
+        {
+            var root1 = FileSystemEntryBuilder.CreateRoot(@"C:\test")
+                .AddDirAndReturnParent("subfolder");
+
+            var root2 = FileSystemEntryBuilder.CreateRoot(@"C:\test")
+                .AddDirAndReturnChild("subfolderNew");
+
+            var actual = root1.CompareTo(root2);
+
+            var subfolderComparison = actual.FirstOrDefault(f => f.ReferenceFileSystemEntry.Path == @"C:\test\subfolder");
+            Assert.IsNotNull(subfolderComparison);
+            Assert.AreEqual(FileSystemEntryComparisonResult.Removed, subfolderComparison.Result);
+            Assert.AreEqual(@"C:\test\subfolder", subfolderComparison.ReferenceFileSystemEntry.Path);
+        }
+
+        [TestMethod]
+        public void If_1_directory_is_renamed_comparison_should_return_1_added_dir()
+        {
+            var root1 = FileSystemEntryBuilder.CreateRoot(@"C:\test")
+                .AddDirAndReturnParent("subfolder");
+
+            var root2 = FileSystemEntryBuilder.CreateRoot(@"C:\test")
+                .AddDirAndReturnChild("subfolderNew");
+
+            var actual = root1.CompareTo(root2);
+
+            var subfolderNew = actual.FirstOrDefault(f => f.Result == FileSystemEntryComparisonResult.Added);
+            Assert.IsNotNull(subfolderNew);
+            Assert.AreEqual(FileSystemEntryComparisonResult.Added, subfolderNew.Result);
+            Assert.AreEqual(@"C:\test\subfolderNew", subfolderNew.CurrentFileSystemEntries.Single().Path);
+        }
+
+        [TestMethod]
         public void If_1_file_is_added_comparison_should_return_added()
         {
             var root1 = FileSystemEntryBuilder.CreateRoot(@"C:\test");
