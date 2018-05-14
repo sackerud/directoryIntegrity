@@ -94,21 +94,38 @@ namespace directoryIntegrity.ConsoleApp
             Console.WriteLine($@"Intact folders: {comparisonResult.IntactDirectoriesCount}");
             Console.WriteLine($@"Intact files: {comparisonResult.IntactFilesCount}");
 
-            Console.WriteLine("The following files and directories has been removed:");
+            PrintRemoved(comparison);
+            PrintMoved(comparison);
+        }
 
-            foreach (var fseComparison in comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed))
-            {
-                Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
-            }
+        private static void PrintMoved(IEnumerable<FileSystemEntryComparison> comparison)
+        {
+            var movedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved);
+
+            if (!movedEntries.Any()) return;
 
             Console.WriteLine("The following files and directories may have been moved:");
-            foreach (var fseComparison in comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved))
+            foreach (var fseComparison in movedEntries)
             {
                 Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
                 foreach (var movedFse in fseComparison.CurrentFileSystemEntries)
                 {
                     Console.WriteLine($"\t=>{movedFse.Path}");
                 }
+            }
+        }
+
+        private static void PrintRemoved(IEnumerable<FileSystemEntryComparison> comparison)
+        {
+            var removedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed);
+
+            if (!removedEntries.Any()) return;
+
+            Console.WriteLine("The following files and directories has been removed:");
+
+            foreach (var fseComparison in removedEntries)
+            {
+                Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
             }
         }
     }
