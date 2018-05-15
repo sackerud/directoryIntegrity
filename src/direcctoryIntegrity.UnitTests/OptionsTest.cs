@@ -28,7 +28,7 @@ namespace directoryIntegrity.UnitTests
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
 
-            var actual = Program.ConsumeArguments(new[] {"createref", "-d", dirToScan, "-o", outputPath});
+            var actual = Program.ConsumeArguments(new[] {"createref", "-d", dirToScan, "-r", outputPath});
 
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.AreEqual(false, Program.CreateRefFileOptions.OverwriteReferenceFile);
@@ -40,7 +40,7 @@ namespace directoryIntegrity.UnitTests
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
 
-            var actual = Program.ConsumeArguments(new[] { "createref", "-d", dirToScan, "-o", outputPath, "-w" });
+            var actual = Program.ConsumeArguments(new[] { "createref", "-d", dirToScan, "-r", outputPath, "-w" });
 
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.AreEqual(true, Program.CreateRefFileOptions.OverwriteReferenceFile);

@@ -8,7 +8,7 @@ namespace directoryIntegrity.ConsoleApp
         [Option('d', "dirtoscan", Required = true, HelpText = "The directory to create a shapshot of")]
         public string DirectoryToScan { get; set; }
 
-        [Option('o', "outputpath", HelpText = "Location to where the reference file will be stored. Default is the current directory.", Default = @".\")]
+        [Option('r', "referencefile", HelpText = "Location to where the reference file will be stored. Default is the current directory.", Default = @".\")]
         public string ReferenceFilepath { get; set; } = @".\";
 
         [Option('w', "overwrite", Default = false, Required = false,
