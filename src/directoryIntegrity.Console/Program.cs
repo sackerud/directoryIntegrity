@@ -7,6 +7,7 @@ using directoryIntegrity.Core;
 using directoryIntegrity.Core.FileSystem;
 using directoryIntegrity.Core.Formatters;
 using directoryIntegrity.Core.ReferenceFile;
+using directoryIntegrity.Core.ReferenceFile.Naming;
 using directoryIntegrity.Core.Scan;
 using Newtonsoft.Json;
 using Directory = System.IO.Directory;
@@ -68,8 +69,18 @@ namespace directoryIntegrity.ConsoleApp
                 return;
             }
 
+            var baptist = DetermineReferenceFilepath();
+
             new JsonReferenceFileCreator(scanner, Formatting.Indented)
-                .CreateReferenceFile(CreateRefFileOptions.ReferenceFilepath);
+                .CreateReferenceFile(baptist.Baptise(CreateRefFileOptions.ReferenceFilepath));
+        }
+
+        private static IReferenceFileBaptist DetermineReferenceFilepath()
+        {
+            if (!File.Exists(CreateRefFileOptions.ReferenceFilepath))
+                return new ReferenceFileOverwriter();
+
+            return ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions);
         }
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
