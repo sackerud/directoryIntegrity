@@ -80,7 +80,9 @@ namespace directoryIntegrity.ConsoleApp
             if (!File.Exists(CreateRefFileOptions.ReferenceFilepath))
                 return new ReferenceFileOverwriter();
 
-            return ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions);
+            var lastWriteTime = File.GetLastWriteTime(CreateRefFileOptions.ReferenceFilepath);
+
+            return ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions, lastWriteTime);
         }
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
