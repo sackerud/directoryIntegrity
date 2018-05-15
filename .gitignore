@@ -303,3 +303,6 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
+
+# Code coverage results from coverlet
+/src/direcctoryIntegrity.UnitTests/coverage.json
