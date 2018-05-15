@@ -11,7 +11,7 @@ namespace directoryIntegrity.ConsoleApp
         [Option('r', "referencefile", HelpText = "Location to where the reference file will be stored. Default is the current directory.", Default = @".\")]
         public string ReferenceFilepath { get; set; } = @".\";
 
-        [Option('w', "overwrite", Default = false, Required = false,
+        [Option('o', "overwrite", Default = false, Required = false,
             HelpText = "Specifying -o or overwrite==true will overwrite any existing refrence file with the same name")]
         public bool OverwriteReferenceFile { get; set; }
     }
