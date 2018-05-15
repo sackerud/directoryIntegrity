@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.Core", "directoryIntegrity.Core\directoryIntegrity.Core.csproj", "{1DB8FCE3-4D7D-46FB-B96F-0F9272F128ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.UnitTests", "direcctoryIntegrity.UnitTests\directoryIntegrity.UnitTests.csproj", "{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.UnitTests", "directoryIntegrity.UnitTests\directoryIntegrity.UnitTests.csproj", "{7793CCEC-23D4-4715-AA82-FFC38D6A0F43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "directoryIntegrity.ConsoleApp", "directoryIntegrity.Console\directoryIntegrity.ConsoleApp.csproj", "{C6A24F82-9566-4CE4-BFBB-91D15B229F50}"
 EndProject

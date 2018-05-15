@@ -1,0 +1,1962 @@
+{
+ "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\bin\\Debug\\netcoreapp2.0\\dinteg.dll": {
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Console\\Options.cs": {
+   "directoryIntegrity.ConsoleApp.CreateReferenceFileOptions": {
+    "System.String directoryIntegrity.ConsoleApp.CreateReferenceFileOptions::get_DirectoryToScan()": {
+     "9": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.ConsoleApp.CreateReferenceFileOptions::get_ReferenceFilepath()": {
+     "12": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.ConsoleApp.CreateReferenceFileOptions::get_OverwriteReferenceFile()": {
+     "16": {
+      "Hits": 5,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.ConsoleApp.ScanOptions": {
+    "System.String directoryIntegrity.ConsoleApp.ScanOptions::get_ReferenceFile()": {
+     "26": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.ConsoleApp.ScanOptions::get_ReferenceFileIsSpecified()": {
+     "28": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.ConsoleApp.ScanOptions::get_DirectoryToScan()": {
+     "31": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Console\\Program.cs": {
+   "directoryIntegrity.ConsoleApp.Program": {
+    "directoryIntegrity.ConsoleApp.ScanOptions directoryIntegrity.ConsoleApp.Program::get_ScanOptions()": {
+     "20": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "directoryIntegrity.ConsoleApp.CreateReferenceFileOptions directoryIntegrity.ConsoleApp.Program::get_CreateRefFileOptions()": {
+     "21": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.ConsoleApp.Program::get_PreventCreatingReferenceFile()": {
+     "22": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.ConsoleApp.Program::get_PreventScan()": {
+     "23": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.ConsoleApp.Program::Main(System.String[])": {
+     "26": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.ConsoleApp.Program::ConsumeArguments(System.String[])": {
+     "34": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 8,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 7,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 6,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Int32 directoryIntegrity.ConsoleApp.Program::HandleParseError(System.Collections.Generic.IEnumerable`1<CommandLine.Error>)": {
+     "43": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 3,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Int32 directoryIntegrity.ConsoleApp.Program::EnsureDirectoryToScanExistsAndCreateReferenceFile(directoryIntegrity.ConsoleApp.CreateReferenceFileOptions)": {
+     "48": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "50": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "52": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     },
+     "57": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "59": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "61": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "62": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void directoryIntegrity.ConsoleApp.Program::CreateReferenceFile(directoryIntegrity.Core.Scan.IDirectoryScanner)": {
+     "65": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "66": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "67": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "68": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "69": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "72": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "75": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "76": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void directoryIntegrity.ConsoleApp.Program::MaybePreserveOldeReferenceFile()": {
+     "79": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "80": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "82": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "84": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "86": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "88": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "89": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.ConsoleApp.Program::EnsureDirectoryToScanAndRefFileExistsAndStartScan(directoryIntegrity.ConsoleApp.ScanOptions)": {
+     "92": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "93": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "94": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "95": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "96": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "99": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     },
+     "100": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "101": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "102": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "105": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     },
+     "107": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "109": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "111": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "112": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison> directoryIntegrity.ConsoleApp.Program::Scan()": {
+     "115": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "116": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "117": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "118": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "119": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "122": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "123": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "125": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "127": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "128": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "129": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void directoryIntegrity.ConsoleApp.Program::PrintComparison(System.Collections.Generic.IList`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison>)": {
+     "132": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "133": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "135": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "136": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "138": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "139": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "140": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.ConsoleApp.Program::PrintMoved(System.Collections.Generic.IList`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison>)": {
+     "143": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "144": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "146": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "148": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "149": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "150": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "151": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "152": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "153": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "154": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "155": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "156": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "157": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void directoryIntegrity.ConsoleApp.Program::PrintRemoved(System.Collections.Generic.IList`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison>)": {
+     "160": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "161": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "163": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "165": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "167": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "168": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "169": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "170": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "171": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  }
+ },
+ "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\bin\\Debug\\netcoreapp2.0\\direcctoryIntegrity.UnitTests.dll": {
+  "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\obj\\Debug\\netcoreapp2.0\\direcctoryIntegrity.UnitTests.Program.cs": {
+   "AutoGeneratedProgram": {
+    "System.Void AutoGeneratedProgram::Main(System.String[])": {
+     "3": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\CompareExtensionTest.cs": {
+   "direcctoryIntegrity.UnitTests.CompareExtensionTest": {
+    "System.Void direcctoryIntegrity.UnitTests.CompareExtensionTest::TestInitialize()": {
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void direcctoryIntegrity.UnitTests.CompareExtensionTest::Comparing_identical_filesystem_structures_should_return_only_intact_result()": {
+     "30": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\FlatFileReferenceCreatorTest.cs": {
+   "direcctoryIntegrity.UnitTests.FlatFileReferenceCreatorTest": {
+    "System.Void direcctoryIntegrity.UnitTests.FlatFileReferenceCreatorTest::CreateReferenceFile_that_points_to_non_existing_dir_should_throw()": {
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void direcctoryIntegrity.UnitTests.FlatFileReferenceCreatorTest::CreateReferenceFile_should_create_file_on_disk()": {
+     "21": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  }
+ },
+ "C:\\GitProjects\\directoryIntegrity\\src\\direcctoryIntegrity.UnitTests\\bin\\Debug\\netcoreapp2.0\\directoryIntegrity.Core.dll": {
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\CompareExtension.cs": {
+   "directoryIntegrity.Core.CompareExtension": {
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.CompareExtension::Deserialize(System.String)": {
+     "73": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "76": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "77": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "78": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.CompareExtension::CountAllEntries(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "81": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "82": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "83": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.Core.CompareExtension/<>c__DisplayClass1_0": {
+    "System.Boolean directoryIntegrity.Core.CompareExtension/<>c__DisplayClass1_0::<CompareTo>b__1(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "22": {
+      "Hits": 51,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 51,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 51,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 51,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.CompareExtension/<>c__DisplayClass1_0::<CompareTo>b__2(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "31": {
+      "Hits": 13,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.CompareExtension/<>c__DisplayClass1_0::<CompareTo>b__0(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "36": {
+      "Hits": 23,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.Core.CompareExtension/<CompareTo>d__1": {
+    "System.Boolean directoryIntegrity.Core.CompareExtension/<CompareTo>d__1::MoveNext()": {
+     "15": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 69,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 21,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 21,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 11,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "42": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "46": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "49": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "50": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "52": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "54": {
+      "Hits": 7,
+      "IsBranchPoint": false
+     },
+     "56": {
+      "Hits": 7,
+      "IsBranchPoint": false
+     },
+     "58": {
+      "Hits": 7,
+      "IsBranchPoint": false
+     },
+     "59": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 9,
+      "IsBranchPoint": false
+     },
+     "61": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "62": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "63": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "64": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "65": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "66": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "67": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "68": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "69": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "70": {
+      "Hits": 6,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.Core.CompareExtension/<Traverse>d__4": {
+    "System.Boolean directoryIntegrity.Core.CompareExtension/<Traverse>d__4::MoveNext()": {
+     "86": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "87": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "88": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     },
+     "89": {
+      "Hits": 58,
+      "IsBranchPoint": true
+     },
+     "90": {
+      "Hits": 38,
+      "IsBranchPoint": true
+     },
+     "91": {
+      "Hits": 38,
+      "IsBranchPoint": false
+     },
+     "92": {
+      "Hits": 38,
+      "IsBranchPoint": false
+     },
+     "93": {
+      "Hits": 150,
+      "IsBranchPoint": true
+     },
+     "94": {
+      "Hits": 18,
+      "IsBranchPoint": false
+     },
+     "95": {
+      "Hits": 38,
+      "IsBranchPoint": false
+     },
+     "96": {
+      "Hits": 20,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\DirectoryIntegrityResult.cs": {
+   "directoryIntegrity.Core.DirectoryIntegrityResult": {
+    "System.Void directoryIntegrity.Core.DirectoryIntegrityResult::.ctor(System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison>)": {
+     "10": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.DateTime directoryIntegrity.Core.DirectoryIntegrityResult::get_DirectoryIntegrityDate()": {
+     "19": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison> directoryIntegrity.Core.DirectoryIntegrityResult::get_ComparisonRows()": {
+     "21": {
+      "Hits": 3,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_AddedDirectoriesCount()": {
+     "24": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_AddedFilesCount()": {
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_IntactDirectoriesCount()": {
+     "30": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_IntactFilesCount()": {
+     "33": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_RemovedDirectoriesCount()": {
+     "36": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_RemovedFilesCount()": {
+     "39": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_MovedDirectoriesCount()": {
+     "42": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_MovedFilesCount()": {
+     "45": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_TotalDirectoryCount()": {
+     "47": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.DirectoryIntegrityResult::get_TotalFileCount()": {
+     "49": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Func`2<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison,System.Boolean> directoryIntegrity.Core.DirectoryIntegrityResult::Directories(directoryIntegrity.Core.FileSystemEntryComparisonResult)": {
+     "52": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "54": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "55": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Func`2<directoryIntegrity.Core.FileSystem.FileSystemEntryComparison,System.Boolean> directoryIntegrity.Core.DirectoryIntegrityResult::Files(directoryIntegrity.Core.FileSystemEntryComparisonResult)": {
+     "58": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "59": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "60": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "61": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\Scan\\DirectoryScanner.cs": {
+   "directoryIntegrity.Core.Scan.DirectoryScanner": {
+    "System.Void directoryIntegrity.Core.Scan.DirectoryScanner::.ctor(System.String)": {
+     "13": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.Scan.DirectoryScanner::Scan()": {
+     "21": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.Scan.DirectoryScanner::GetFileSystemEntries(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String[] directoryIntegrity.Core.Scan.DirectoryScanner::ListDirectories(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "41": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "42": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "43": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "directoryIntegrity.Core.FileSystem.Directory directoryIntegrity.Core.Scan.DirectoryScanner::CreateDir(System.String)": {
+     "46": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "47": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "48": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "directoryIntegrity.Core.FileSystem.FileSystemEntry directoryIntegrity.Core.Scan.DirectoryScanner::CreateFile(System.String)": {
+     "51": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "52": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "53": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.Scan.DirectoryScanner::ThrowIfDirectoryDoesNotExist(System.String)": {
+     "56": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "57": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "58": {
+      "Hits": 2,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\Scan\\DirectoryScanResult.cs": {
+   "directoryIntegrity.Core.Scan.DirectoryScanResult": {
+    "System.DateTime directoryIntegrity.Core.Scan.DirectoryScanResult::get_ScanDate()": {
+     "9": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.Scan.DirectoryScanResult::get_FileSystemEntries()": {
+     "11": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\Scan\\StreamingDirectoryScanner.cs": {
+   "directoryIntegrity.Core.Scan.StreamingDirectoryScanner": {
+    "System.Void directoryIntegrity.Core.Scan.StreamingDirectoryScanner::.ctor(System.String)": {
+     "11": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.Scan.StreamingDirectoryScanner::Scan()": {
+     "20": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.Scan.StreamingDirectoryScanner::ThrowIfDirectoryDoesNotExist(System.String)": {
+     "44": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "46": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.Core.Scan.StreamingDirectoryScanner/<GetFileSystemEntries>d__4": {
+    "System.Boolean directoryIntegrity.Core.Scan.StreamingDirectoryScanner/<GetFileSystemEntries>d__4::MoveNext()": {
+     "25": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "26": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "41": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\ReferenceFile\\FlatReferenceFileCreator.cs": {
+   "directoryIntegrity.Core.ReferenceFile.FlatReferenceFileCreator": {
+    "System.Void directoryIntegrity.Core.ReferenceFile.FlatReferenceFileCreator::.ctor(directoryIntegrity.Core.Scan.IDirectoryScanner)": {
+     "10": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.ReferenceFile.FlatReferenceFileCreator::CreateReferenceFile(System.String)": {
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\ReferenceFile\\JsonReferenceFileConverter.cs": {
+   "directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter": {
+    "System.Boolean directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter::get_CanWrite()": {
+     "10": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter::get_CanRead()": {
+     "11": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter::CanConvert(System.Type)": {
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter::WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)": {
+     "18": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Object directoryIntegrity.Core.ReferenceFile.JsonReferenceFileConverter::ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)": {
+     "25": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "36": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\ReferenceFile\\JsonReferenceFileCreator.cs": {
+   "directoryIntegrity.Core.ReferenceFile.JsonReferenceFileCreator": {
+    "System.Void directoryIntegrity.Core.ReferenceFile.JsonReferenceFileCreator::.ctor(directoryIntegrity.Core.Scan.IDirectoryScanner,Newtonsoft.Json.Formatting)": {
+     "12": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.ReferenceFile.JsonReferenceFileCreator::CreateReferenceFile(System.String)": {
+     "19": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\ReferenceFile\\JsonReferenceFileReader.cs": {
+   "directoryIntegrity.Core.ReferenceFile.JsonReferenceFileReader": {
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.ReferenceFile.JsonReferenceFileReader::Read(System.String)": {
+     "10": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\ReferenceFile\\Naming\\ReferenceFilePreserver.cs": {
+   "directoryIntegrity.Core.ReferenceFile.Naming.ReferenceFilePreserver": {
+    "System.Void directoryIntegrity.Core.ReferenceFile.Naming.ReferenceFilePreserver::.ctor(System.DateTime)": {
+     "10": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "11": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.Core.ReferenceFile.Naming.ReferenceFilePreserver::Baptise(System.String)": {
+     "16": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "25": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\Formatters\\TimeSpanExtensions.cs": {
+   "directoryIntegrity.Core.Formatters.TimeSpanExtensions": {
+    "System.String directoryIntegrity.Core.Formatters.TimeSpanExtensions::Format(System.TimeSpan)": {
+     "9": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "10": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "13": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     },
+     "20": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\FileSystem\\Directory.cs": {
+   "directoryIntegrity.Core.FileSystem.Directory": {
+    "System.Void directoryIntegrity.Core.FileSystem.Directory::.ctor(System.String)": {
+     "5": {
+      "Hits": 105,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.Core.FileSystem.Directory::get_Name()": {
+     "6": {
+      "Hits": 35,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.FileSystem.Directory::get_IsDirectory()": {
+     "9": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.FileSystem.Directory::set_IsDirectory(System.Boolean)": {
+     "10": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\FileSystem\\File.cs": {
+   "directoryIntegrity.Core.FileSystem.File": {
+    "System.Void directoryIntegrity.Core.FileSystem.File::.ctor(System.String)": {
+     "4": {
+      "Hits": 36,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.Core.FileSystem.File::get_Name()": {
+     "5": {
+      "Hits": 12,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.FileSystem.File::get_IsDirectory()": {
+     "8": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.FileSystem.File::set_IsDirectory(System.Boolean)": {
+     "9": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\FileSystem\\FileSystemEntry.cs": {
+   "directoryIntegrity.Core.FileSystem.FileSystemEntry": {
+    "System.String directoryIntegrity.Core.FileSystem.FileSystemEntry::get_Path()": {
+     "8": {
+      "Hits": 211,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IList`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.FileSystem.FileSystemEntry::get_Children()": {
+     "10": {
+      "Hits": 110,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.FileSystem.FileSystemEntry::.ctor(System.String)": {
+     "16": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     },
+     "19": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.FileSystem.FileSystemEntry::AddChild(directoryIntegrity.Core.FileSystem.FileSystemEntry)": {
+     "22": {
+      "Hits": 25,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 25,
+      "IsBranchPoint": false
+     },
+     "24": {
+      "Hits": 25,
+      "IsBranchPoint": false
+     }
+    }
+   },
+   "directoryIntegrity.Core.FileSystem.GenericFileSystemEntry": {
+    "System.Void directoryIntegrity.Core.FileSystem.GenericFileSystemEntry::.ctor(System.String)": {
+     "29": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 47,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.Core.FileSystem.GenericFileSystemEntry::get_Name()": {
+     "33": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "35": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Boolean directoryIntegrity.Core.FileSystem.GenericFileSystemEntry::get_IsDirectory()": {
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\FileSystem\\FileSystemEntryComparison.cs": {
+   "directoryIntegrity.Core.FileSystem.FileSystemEntryComparison": {
+    "directoryIntegrity.Core.FileSystem.IFileSystemEntry directoryIntegrity.Core.FileSystem.FileSystemEntryComparison::get_ReferenceFileSystemEntry()": {
+     "8": {
+      "Hits": 33,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Collections.Generic.IEnumerable`1<directoryIntegrity.Core.FileSystem.IFileSystemEntry> directoryIntegrity.Core.FileSystem.FileSystemEntryComparison::get_CurrentFileSystemEntries()": {
+     "10": {
+      "Hits": 19,
+      "IsBranchPoint": false
+     }
+    },
+    "directoryIntegrity.Core.FileSystemEntryComparisonResult directoryIntegrity.Core.FileSystem.FileSystemEntryComparison::get_Result()": {
+     "12": {
+      "Hits": 38,
+      "IsBranchPoint": false
+     }
+    },
+    "System.String directoryIntegrity.Core.FileSystem.FileSystemEntryComparison::ToString()": {
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "20": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "21": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\FileSystem\\FileSystemEntryNameComparer.cs": {
+   "directoryIntegrity.Core.FileSystem.FileSystemEntryNameComparer": {
+    "System.Boolean directoryIntegrity.Core.FileSystem.FileSystemEntryNameComparer::Equals(directoryIntegrity.Core.FileSystem.IFileSystemEntry,directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "8": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "9": {
+      "Hits": 10,
+      "IsBranchPoint": false
+     },
+     "10": {
+      "Hits": 10,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Int32 directoryIntegrity.Core.FileSystem.FileSystemEntryNameComparer::GetHashCode(directoryIntegrity.Core.FileSystem.IFileSystemEntry)": {
+     "13": {
+      "Hits": 27,
+      "IsBranchPoint": false
+     },
+     "14": {
+      "Hits": 27,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 27,
+      "IsBranchPoint": true
+     }
+    }
+   }
+  },
+  "C:\\GitProjects\\directoryIntegrity\\src\\directoryIntegrity.Core\\DateAndTime\\DateTimeProvider.cs": {
+   "directoryIntegrity.Core.DateAndTime.DateTimeProvider": {
+    "System.DateTime directoryIntegrity.Core.DateAndTime.DateTimeProvider::get_Now()": {
+     "10": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.DateTime directoryIntegrity.Core.DateAndTime.DateTimeProvider::Freeze()": {
+     "14": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "15": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "16": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "17": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "18": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::Thaw()": {
+     "21": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "22": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "23": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::Set(System.DateTime)": {
+     "26": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "27": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::MoveBackward(System.TimeSpan)": {
+     "31": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "32": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "33": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "34": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::MoveForward(System.TimeSpan)": {
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "39": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "40": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::Reset()": {
+     "43": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "44": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "45": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void directoryIntegrity.Core.DateAndTime.DateTimeProvider::.cctor()": {
+     "7": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "12": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    }
+   }
+  }
+ }
+}
