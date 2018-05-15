@@ -5,6 +5,7 @@ namespace directoryIntegrity.Core.ReferenceFile.Naming
 {
     public class ReferenceFilePreserver : IReferenceFileBaptist
     {
+        // TODO: This guy has to be smarter. Need to use the creation or last modified date when renaming old ref file. Not the current date.
         public string Baptise(string filepath)
         {
             var dir = Path.GetDirectoryName(filepath);
