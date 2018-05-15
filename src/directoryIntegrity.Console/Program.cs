@@ -16,8 +16,10 @@ namespace directoryIntegrity.ConsoleApp
 {
     internal class Program
     {
-        private static ScanOptions _scanOptions;
-        private static CreateReferenceFileOptions _createRefFileOptions;
+        internal static ScanOptions ScanOptions { get; set; }
+        internal static CreateReferenceFileOptions CreateRefFileOptions { get; set; }
+        internal static bool PreventCreatingReferenceFile { get; set; }
+        internal static bool PreventScan { get; set; }
 
         static int Main(string[] args)
         {
@@ -27,12 +29,12 @@ namespace directoryIntegrity.ConsoleApp
             return exitCode;
         }
 
-        private static int ConsumeArguments(string[] args)
+        internal static int ConsumeArguments(string[] args)
         {
             return Parser.Default.ParseArguments<CreateReferenceFileOptions, ScanOptions>(args)
                 .MapResult(
-                    (CreateReferenceFileOptions opts) => CreateReferenceFile(opts),
-                    (ScanOptions opts) => ScanDirectory(opts),
+                    (CreateReferenceFileOptions opts) => EnsureDirectoryToScanExistsAndCreateReferenceFile(opts),
+                    (ScanOptions opts) => EnsureDirectoryToScanAndRefFileExistsAndStartScan(opts),
                     HandleParseError);
         }
 
@@ -41,7 +43,7 @@ namespace directoryIntegrity.ConsoleApp
             return ExitCodes.InvalidArgs;
         }
 
-        private static int CreateReferenceFile(CreateReferenceFileOptions opts)
+        private static int EnsureDirectoryToScanExistsAndCreateReferenceFile(CreateReferenceFileOptions opts)
         {
             if (!Directory.Exists(opts.DirectoryToScan))
             {
@@ -49,17 +51,28 @@ namespace directoryIntegrity.ConsoleApp
                 return -1;
             }
 
-            _createRefFileOptions = opts;
+            CreateRefFileOptions = opts;
 
-            var scanner = new DirectoryScanner(_createRefFileOptions.DirectoryToScan);
+            var scanner = new DirectoryScanner(CreateRefFileOptions.DirectoryToScan);
 
-            new JsonReferenceFileCreator(scanner, Formatting.Indented)
-                .CreateReferenceFile(_createRefFileOptions.ReferenceFilepath);
+            CreateReferenceFile(scanner);
 
             return ExitCodes.Success;
         }
 
-        private static int ScanDirectory(ScanOptions opts)
+        private static void CreateReferenceFile(DirectoryScanner scanner)
+        {
+            if (PreventCreatingReferenceFile)
+            {
+                Console.WriteLine($"Skipping reference file creation due to {nameof(PreventCreatingReferenceFile)} = {PreventCreatingReferenceFile}");
+                return;
+            }
+
+            new JsonReferenceFileCreator(scanner, Formatting.Indented)
+                .CreateReferenceFile(CreateRefFileOptions.ReferenceFilepath);
+        }
+
+        private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
         {
             if (!Directory.Exists(opts.DirectoryToScan))
             {
@@ -73,18 +86,30 @@ namespace directoryIntegrity.ConsoleApp
                 return ExitCodes.RefFileDoesNotExist;
             }
 
-            _scanOptions = opts;
+            ScanOptions = opts;
 
-            var scanner = new DirectoryScanner(_scanOptions.DirectoryToScan);
-            var scanResult = scanner.Scan();
-
-            var referenceFileContents = new JsonReferenceFileReader().Read(_scanOptions.ReferenceFile);
-
-            var comparison = referenceFileContents.FirstOrDefault().CompareTo(scanResult.FirstOrDefault());
+            var comparison = Scan();
 
             PrintComparison(comparison.ToList());
 
             return ExitCodes.Success;
+        }
+
+        private static IEnumerable<FileSystemEntryComparison> Scan()
+        {
+            if (PreventScan)
+            {
+                Console.WriteLine($"Skipping scan due to {nameof(PreventScan)} = {PreventScan}");
+                return new List<FileSystemEntryComparison>();
+            }
+
+            var scanner = new DirectoryScanner(ScanOptions.DirectoryToScan);
+            var scanResult = scanner.Scan();
+
+            var referenceFileContents = new JsonReferenceFileReader().Read(ScanOptions.ReferenceFile);
+
+            var comparison = referenceFileContents.FirstOrDefault().CompareTo(scanResult.FirstOrDefault());
+            return comparison;
         }
 
         private static void PrintComparison(IList<FileSystemEntryComparison> comparison)
