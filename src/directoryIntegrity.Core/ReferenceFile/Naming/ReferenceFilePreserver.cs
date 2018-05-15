@@ -1,5 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using directoryIntegrity.Core.DateAndTime;
 
 namespace directoryIntegrity.Core.ReferenceFile.Naming
 {
@@ -11,8 +11,8 @@ namespace directoryIntegrity.Core.ReferenceFile.Naming
             var filename = Path.GetFileNameWithoutExtension(filepath);
             var extension = Path.GetExtension(filepath);
 
-            var dateSuffix = DateTime.Now.ToString("yyyy-MM-dd_hh:mm:ss");
-            var filenameWithDateSuffix = $"{filename}{dateSuffix}{extension}";
+            var dateSuffix = DateTimeProvider.Now.ToString("yyyy-MM-dd_hh-mm-ss");
+            var filenameWithDateSuffix = $"{filename}.{dateSuffix}{extension}";
 
             return $"{Path.Combine(dir, filenameWithDateSuffix)}";
         }
