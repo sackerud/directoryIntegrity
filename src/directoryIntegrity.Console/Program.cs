@@ -69,20 +69,22 @@ namespace directoryIntegrity.ConsoleApp
                 return;
             }
 
-            var baptist = DetermineReferenceFilepath();
+            MaybePreserveOldeReferenceFile();
 
             new JsonReferenceFileCreator(scanner, Formatting.Indented)
-                .CreateReferenceFile(baptist.Baptise(CreateRefFileOptions.ReferenceFilepath));
+                .CreateReferenceFile(CreateRefFileOptions.ReferenceFilepath);
         }
 
-        private static IReferenceFileBaptist DetermineReferenceFilepath()
+        private static void MaybePreserveOldeReferenceFile()
         {
-            if (!File.Exists(CreateRefFileOptions.ReferenceFilepath))
-                return new ReferenceFileOverwriter();
+            if (!File.Exists(CreateRefFileOptions.ReferenceFilepath)) return;
 
             var lastWriteTime = File.GetLastWriteTime(CreateRefFileOptions.ReferenceFilepath);
 
-            return ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions, lastWriteTime);
+            var baptist = ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions, lastWriteTime);
+
+            if (baptist.GetType() == typeof(ReferenceFilePreserver))
+                File.Move(CreateRefFileOptions.ReferenceFilepath, baptist.Baptise(CreateRefFileOptions.ReferenceFilepath));
         }
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
