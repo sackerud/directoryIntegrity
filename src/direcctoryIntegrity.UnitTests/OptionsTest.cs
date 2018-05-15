@@ -23,7 +23,7 @@ namespace directoryIntegrity.UnitTests
         }
 
         [TestMethod]
-        public void Option_overwriteReferenceFile_should_be_false_if_o_option_is_omitted()
+        public void CreateRef_without_w_option_should_set_overwriteReferenceFile_to_false()
         {
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
@@ -35,7 +35,7 @@ namespace directoryIntegrity.UnitTests
         }
 
         [TestMethod]
-        public void Option_overwriteReferenceFile_should_be_true_if_w_is_specified()
+        public void CreateRef_with_w_specified_should_set_overwriteReferenceFile_to_true()
         {
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
