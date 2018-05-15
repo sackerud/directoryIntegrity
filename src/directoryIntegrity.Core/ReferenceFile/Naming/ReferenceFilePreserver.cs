@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using directoryIntegrity.Core.DateAndTime;
 
 namespace directoryIntegrity.Core.ReferenceFile.Naming
 {
@@ -13,7 +12,6 @@ namespace directoryIntegrity.Core.ReferenceFile.Naming
             _dateToIncludeInFilename = dateToIncludeInFilename;
         }
 
-        // TODO: This guy has to be smarter. Need to use the creation or last modified date when renaming old ref file. Not the current date.
         public string Baptise(string filepath)
         {
             var dir = Path.GetDirectoryName(filepath);

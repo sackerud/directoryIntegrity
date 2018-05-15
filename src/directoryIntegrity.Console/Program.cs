@@ -61,7 +61,7 @@ namespace directoryIntegrity.ConsoleApp
             return ExitCodes.Success;
         }
 
-        private static void CreateReferenceFile(DirectoryScanner scanner)
+        private static void CreateReferenceFile(IDirectoryScanner scanner)
         {
             if (PreventCreatingReferenceFile)
             {
@@ -79,12 +79,13 @@ namespace directoryIntegrity.ConsoleApp
         {
             if (!File.Exists(CreateRefFileOptions.ReferenceFilepath)) return;
 
+            if (CreateRefFileOptions.OverwriteReferenceFile) return;
+
             var lastWriteTime = File.GetLastWriteTime(CreateRefFileOptions.ReferenceFilepath);
 
-            var baptist = ReferenceFileBaptistSelector.SelectBaptist(CreateRefFileOptions, lastWriteTime);
+            var baptist = new ReferenceFilePreserver(lastWriteTime);
 
-            if (baptist.GetType() == typeof(ReferenceFilePreserver))
-                File.Move(CreateRefFileOptions.ReferenceFilepath, baptist.Baptise(CreateRefFileOptions.ReferenceFilepath));
+            File.Move(CreateRefFileOptions.ReferenceFilepath, baptist.Baptise(CreateRefFileOptions.ReferenceFilepath));
         }
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
