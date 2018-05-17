@@ -14,6 +14,10 @@ namespace directoryIntegrity.ConsoleApp
         [Option('o', "overwrite", Default = false, Required = false,
             HelpText = "Specifying -o or overwrite==true will overwrite any existing refrence file with the same name")]
         public bool OverwriteReferenceFile { get; set; }
+
+        [Option('w', "whatif", Required = false,
+            HelpText = "Prints out what dirinteg would do if running without this argument")]
+        public bool WhatIf { get; set; }
     }
 
     [Verb("scan", HelpText = "Scan a directory for changes compared to a reference file")]
@@ -29,5 +33,9 @@ namespace directoryIntegrity.ConsoleApp
 
         [Option('d', "dirtoscan", Required = true, HelpText = "The directory to create a shapshot of")]
         public string DirectoryToScan { get; set; }
+
+        [Option('w', "whatif", Required = false,
+            HelpText = "Prints out what dirinteg would do if running without this argument")]
+        public bool WhatIf { get; set; }
     }
 }

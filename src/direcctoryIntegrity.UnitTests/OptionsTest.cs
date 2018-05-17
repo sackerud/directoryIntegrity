@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using directoryIntegrity.ConsoleApp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -44,6 +45,22 @@ namespace directoryIntegrity.UnitTests
 
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.AreEqual(true, Program.CreateRefFileOptions.OverwriteReferenceFile);
+        }
+
+        [TestMethod]
+        public void Createref_verb_with_d_and_w_option_should_not_create_reference_file()
+        {
+            var dirToScan = Path.GetTempPath();
+            var outputPath = Path.Combine(dirToScan, $"{Guid.NewGuid()}.json");
+
+            if (File.Exists(outputPath))
+                Assert.Inconclusive($"{outputPath} already exist, cannot make assertions");
+
+            Program.PreventCreatingReferenceFile = false;
+
+            var actual = Program.ConsumeArguments(new[] { "createref", "-w", "-d", dirToScan, "-r", outputPath, "-o" });
+            Assert.AreEqual(ExitCodes.Success, actual);
+            Assert.IsFalse(File.Exists(outputPath), $"The -w argument should prevent that {outputPath} is written to disk");
         }
 
         [TestMethod]
