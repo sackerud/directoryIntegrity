@@ -83,5 +83,15 @@ namespace directoryIntegrity.UnitTests
             var actual = Program.ConsumeArguments(new[] { "scan", "-d", @"c:\" });
             Assert.AreEqual(ExitCodes.Success, actual);
         }
+
+        [TestMethod]
+        public void Scan_verb_with_w_option_should_return_success()
+        {
+            var dirToScan = Path.GetTempPath();
+            var outputPath = Path.Combine(dirToScan, $"{Guid.NewGuid()}.json");
+
+            var actual = Program.ConsumeArguments(new[] { "scan", "-w", "-d", dirToScan, "-r", outputPath });
+            Assert.AreEqual(ExitCodes.Success, actual);
+        }
     }
 }

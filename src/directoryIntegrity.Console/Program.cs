@@ -92,6 +92,8 @@ namespace directoryIntegrity.ConsoleApp
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
         {
+            if (opts.WhatIf) return ExitCodes.Success;
+
             if (!Directory.Exists(opts.DirectoryToScan))
             {
                 Console.WriteLine($"{opts.DirectoryToScan} does not exist");
@@ -115,9 +117,10 @@ namespace directoryIntegrity.ConsoleApp
 
         private static IEnumerable<FileSystemEntryComparison> Scan()
         {
-            if (PreventScan)
+            if (ScanOptions.WhatIf)
             {
-                Console.WriteLine($"Skipping scan due to {nameof(PreventScan)} = {PreventScan}");
+                Console.WriteLine($"Skipping scan due to --whatif argument");
+                PrintWhatIfForScan(ScanOptions);
                 return new List<FileSystemEntryComparison>();
             }
 
@@ -174,8 +177,7 @@ namespace directoryIntegrity.ConsoleApp
 
         private static void PrintWhatIfForCreateRef(CreateReferenceFileOptions opts)
         {
-            Console.WriteLine("Counting files and directories...");
-            var fsEntries = Directory.EnumerateFileSystemEntries(opts.DirectoryToScan, "*.*", SearchOption.AllDirectories);
+            var fsEntries = EnumerateFsEntries(opts.DirectoryToScan);
             Console.WriteLine("Here's what I would do:");
             Console.WriteLine($"I would scan {opts.DirectoryToScan} which has {fsEntries.Count()} files and directories");
             Console.WriteLine($"After that, a file with these file system entries would be written to {opts.ReferenceFilepath}");
@@ -183,6 +185,22 @@ namespace directoryIntegrity.ConsoleApp
                 Console.WriteLine("If that file already exists, it will be overwritten");
             else
                 Console.WriteLine("If that file already exists, it will be renamed to prevent overwriting");
+        }
+
+
+        private static void PrintWhatIfForScan(ScanOptions opts)
+        {
+            var fsEntries = EnumerateFsEntries(opts.DirectoryToScan);
+            Console.WriteLine("Here's what I would do:");
+            Console.WriteLine($"I would scan {opts.DirectoryToScan} which has {fsEntries.Count()} files and directories");
+            Console.WriteLine($"After that, I'll compare the scan result with {opts.ReferenceFile}");
+        }
+
+        private static IEnumerable<string> EnumerateFsEntries(string dirToScan)
+        {
+            Console.WriteLine("Counting files and directories...");
+            var fsEntries = Directory.EnumerateFileSystemEntries(dirToScan, "*.*", SearchOption.AllDirectories);
+            return fsEntries;
         }
     }
 }
