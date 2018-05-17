@@ -58,7 +58,7 @@ namespace directoryIntegrity.UnitTests
 
             Program.PreventCreatingReferenceFile = false;
 
-            var actual = Program.ConsumeArguments(new[] { "createref", "-w", "-d", dirToScan, "-r", outputPath, "-o" });
+            var actual = Program.ConsumeArguments(new[] { "createref", "-w", "-d", dirToScan, "-r", outputPath });
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.IsFalse(File.Exists(outputPath), $"The -w argument should prevent that {outputPath} is written to disk");
         }

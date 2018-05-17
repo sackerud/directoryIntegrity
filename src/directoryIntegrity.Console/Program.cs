@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using CommandLine;
 using directoryIntegrity.Core;
@@ -63,9 +64,10 @@ namespace directoryIntegrity.ConsoleApp
 
         private static void CreateReferenceFile(IDirectoryScanner scanner)
         {
-            if (PreventCreatingReferenceFile)
+            if (CreateRefFileOptions.WhatIf)
             {
-                Console.WriteLine($"Skipping reference file creation due to {nameof(PreventCreatingReferenceFile)} = {PreventCreatingReferenceFile}");
+                Console.WriteLine("Skipping reference file creation due to --whatif argument");
+                PrintWhatIfForCreateRef(CreateRefFileOptions);
                 return;
             }
 
@@ -168,6 +170,19 @@ namespace directoryIntegrity.ConsoleApp
             {
                 Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
             }
+        }
+
+        private static void PrintWhatIfForCreateRef(CreateReferenceFileOptions opts)
+        {
+            Console.WriteLine("Counting files and directories...");
+            var fsEntries = Directory.EnumerateFileSystemEntries(opts.DirectoryToScan, "*.*", SearchOption.AllDirectories);
+            Console.WriteLine("Here's what I would do:");
+            Console.WriteLine($"I would scan {opts.DirectoryToScan} which has {fsEntries.Count()} files and directories");
+            Console.WriteLine($"After that, a file with these file system entries would be written to {opts.ReferenceFilepath}");
+            if (opts.OverwriteReferenceFile)
+                Console.WriteLine("If that file already exists, it will be overwritten");
+            else
+                Console.WriteLine("If that file already exists, it will be renamed to prevent overwriting");
         }
     }
 }
