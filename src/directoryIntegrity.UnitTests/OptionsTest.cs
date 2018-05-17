@@ -9,12 +9,6 @@ namespace directoryIntegrity.UnitTests
     [TestClass]
     public class OptionsTest
     {
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            Program.PreventCreatingReferenceFile = true;
-            Program.PreventScan = true;
-        }
 
         [TestMethod]
         public void Createref_verb_without_any_option_should_return_invalidArgs()
@@ -24,24 +18,24 @@ namespace directoryIntegrity.UnitTests
         }
 
         [TestMethod]
-        public void CreateRef_without_w_option_should_set_overwriteReferenceFile_to_false()
+        public void CreateRef_without_o_option_should_set_overwriteReferenceFile_to_false()
         {
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
 
-            var actual = Program.ConsumeArguments(new[] {"createref", "-d", dirToScan, "-r", outputPath});
+            var actual = Program.ConsumeArguments(new[] {"createref", "-d", dirToScan, "-r", outputPath, "-w"});
 
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.AreEqual(false, Program.CreateRefFileOptions.OverwriteReferenceFile);
         }
 
         [TestMethod]
-        public void CreateRef_with_w_specified_should_set_overwriteReferenceFile_to_true()
+        public void CreateRef_with_o_specified_should_set_overwriteReferenceFile_to_true()
         {
             var dirToScan = Path.GetTempPath();
             var outputPath = Path.Combine(dirToScan, "dirref.json");
 
-            var actual = Program.ConsumeArguments(new[] { "createref", "-d", dirToScan, "-r", outputPath, "-o" });
+            var actual = Program.ConsumeArguments(new[] { "createref", "-d", dirToScan, "-r", outputPath, "-o", "-w" });
 
             Assert.AreEqual(ExitCodes.Success, actual);
             Assert.AreEqual(true, Program.CreateRefFileOptions.OverwriteReferenceFile);
