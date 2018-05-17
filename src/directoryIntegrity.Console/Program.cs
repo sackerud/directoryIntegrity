@@ -20,8 +20,6 @@ namespace directoryIntegrity.ConsoleApp
     {
         internal static ScanOptions ScanOptions { get; set; }
         internal static CreateReferenceFileOptions CreateRefFileOptions { get; set; }
-        internal static bool PreventCreatingReferenceFile { get; set; }
-        internal static bool PreventScan { get; set; }
 
         static int Main(string[] args)
         {
