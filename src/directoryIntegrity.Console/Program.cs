@@ -92,7 +92,12 @@ namespace directoryIntegrity.ConsoleApp
 
         private static int EnsureDirectoryToScanAndRefFileExistsAndStartScan(ScanOptions opts)
         {
-            if (opts.WhatIf) return ExitCodes.Success;
+            if (opts.WhatIf)
+            {
+                Console.WriteLine($"Skipping scan due to --whatif argument");
+                PrintWhatIfForScan(opts);
+                return ExitCodes.Success;
+            }
 
             if (!Directory.Exists(opts.DirectoryToScan))
             {
@@ -117,13 +122,6 @@ namespace directoryIntegrity.ConsoleApp
 
         private static IEnumerable<FileSystemEntryComparison> Scan()
         {
-            if (ScanOptions.WhatIf)
-            {
-                Console.WriteLine($"Skipping scan due to --whatif argument");
-                PrintWhatIfForScan(ScanOptions);
-                return new List<FileSystemEntryComparison>();
-            }
-
             var scanner = new DirectoryScanner(ScanOptions.DirectoryToScan);
             var scanResult = scanner.Scan();
 

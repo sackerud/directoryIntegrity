@@ -80,7 +80,8 @@ namespace directoryIntegrity.UnitTests
         [TestMethod]
         public void Scan_verb_with_d_option_should_return_success()
         {
-            var actual = Program.ConsumeArguments(new[] { "scan", "-d", @"c:\" });
+            var dirToScan = Path.GetTempPath();
+            var actual = Program.ConsumeArguments(new[] { "scan", "-d", dirToScan, "-w" });
             Assert.AreEqual(ExitCodes.Success, actual);
         }
 
