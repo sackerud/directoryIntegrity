@@ -7,6 +7,7 @@ using CommandLine;
 using directoryIntegrity.Core;
 using directoryIntegrity.Core.FileSystem;
 using directoryIntegrity.Core.Formatters;
+using directoryIntegrity.Core.Mail;
 using directoryIntegrity.Core.ReferenceFile;
 using directoryIntegrity.Core.ReferenceFile.Naming;
 using directoryIntegrity.Core.Scan;
@@ -23,9 +24,14 @@ namespace directoryIntegrity.ConsoleApp
 
         static int Main(string[] args)
         {
+            
             var sw = Stopwatch.StartNew();
             var exitCode = ConsumeArguments(args);
             Console.WriteLine($"This operation took {sw.Elapsed.Format()}");
+
+            var mailCfg = new MailHelper().CreateMailConfiguration();
+            SendReportByMail(mailCfg);
+
             return exitCode;
         }
 
@@ -197,6 +203,11 @@ namespace directoryIntegrity.ConsoleApp
             Console.WriteLine("Counting files and directories...");
             var fsEntries = Directory.EnumerateFileSystemEntries(dirToScan, "*.*", SearchOption.AllDirectories);
             return fsEntries;
+        }
+
+        private static void SendReportByMail(MailConfiguration mailcfg)
+        {
+
         }
     }
 }
