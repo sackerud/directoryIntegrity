@@ -54,7 +54,7 @@ namespace directoryIntegrity.ConsoleApp
             if (!Directory.Exists(opts.DirectoryToScan))
             {
                 Console.WriteLine($"{opts.DirectoryToScan} does not exist");
-                return -1;
+                return ExitCodes.ScanDirDoesNotExist;
             }
 
             CreateRefFileOptions = opts;
@@ -144,6 +144,7 @@ namespace directoryIntegrity.ConsoleApp
 
             PrintRemoved(comparison);
             PrintMoved(comparison);
+            PrintAdded(comparison);
         }
 
         private static void PrintMoved(IList<FileSystemEntryComparison> comparison)
@@ -160,6 +161,20 @@ namespace directoryIntegrity.ConsoleApp
                 {
                     Console.WriteLine($"\t=>{movedFse.Path}");
                 }
+            }
+        }
+
+        private static void PrintAdded(IList<FileSystemEntryComparison> comparison)
+        {
+            var addedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Added).ToList();
+
+            if (!addedEntries.Any()) return;
+
+            Console.WriteLine("The following files and directories has been added:");
+
+            foreach (var fseComparison in addedEntries)
+            {
+                Console.WriteLine(fseComparison.CurrentFileSystemEntries.Single().Path);
             }
         }
 
