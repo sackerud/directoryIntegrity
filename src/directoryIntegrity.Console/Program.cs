@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using CommandLine;
 using directoryIntegrity.Core;
@@ -71,7 +70,7 @@ namespace directoryIntegrity.ConsoleApp
             if (CreateRefFileOptions.WhatIf)
             {
                 Console.WriteLine("Skipping reference file creation due to --whatif argument");
-                PrintWhatIfForCreateRef(CreateRefFileOptions);
+                WhatIf.IWouldCreateAReferenceFile(CreateRefFileOptions);
                 return;
             }
 
@@ -98,8 +97,8 @@ namespace directoryIntegrity.ConsoleApp
         {
             if (opts.WhatIf)
             {
-                Console.WriteLine($"Skipping scan due to --whatif argument");
-                PrintWhatIfForScan(opts);
+                Console.WriteLine("Skipping scan due to --whatif argument");
+                WhatIf.IWouldScan(opts);
                 return ExitCodes.Success;
             }
 
@@ -190,34 +189,6 @@ namespace directoryIntegrity.ConsoleApp
             {
                 Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
             }
-        }
-
-        private static void PrintWhatIfForCreateRef(CreateReferenceFileOptions opts)
-        {
-            var fsEntries = EnumerateFsEntries(opts.DirectoryToScan);
-            Console.WriteLine("Here's what I would do:");
-            Console.WriteLine($"I would scan {opts.DirectoryToScan} which has {fsEntries.Count()} files and directories");
-            Console.WriteLine($"After that, a file with these file system entries would be written to {opts.ReferenceFilepath}");
-            if (opts.OverwriteReferenceFile)
-                Console.WriteLine("If that file already exists, it will be overwritten");
-            else
-                Console.WriteLine("If that file already exists, it will be renamed to prevent overwriting");
-        }
-
-
-        private static void PrintWhatIfForScan(ScanOptions opts)
-        {
-            var fsEntries = EnumerateFsEntries(opts.DirectoryToScan);
-            Console.WriteLine("Here's what I would do:");
-            Console.WriteLine($"I would scan {opts.DirectoryToScan} which has {fsEntries.Count()} files and directories");
-            Console.WriteLine($"After that, I'll compare the scan result with {opts.ReferenceFile}");
-        }
-
-        private static IEnumerable<string> EnumerateFsEntries(string dirToScan)
-        {
-            Console.WriteLine("Counting files and directories...");
-            var fsEntries = Directory.EnumerateFileSystemEntries(dirToScan, "*.*", SearchOption.AllDirectories);
-            return fsEntries;
         }
 
         private static void SendReportByMail(MailConfiguration mailcfg)
