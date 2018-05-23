@@ -23,7 +23,6 @@ namespace directoryIntegrity.ConsoleApp
 
         static int Main(string[] args)
         {
-            
             var sw = Stopwatch.StartNew();
             var exitCode = ConsumeArguments(args);
             Console.WriteLine($"This operation took {sw.Elapsed.Format()}");
