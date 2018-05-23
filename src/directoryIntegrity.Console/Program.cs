@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using CommandLine;
 using directoryIntegrity.Core;
 using directoryIntegrity.Core.FileSystem;
 using directoryIntegrity.Core.Formatters;
-using directoryIntegrity.Core.Mail;
 using directoryIntegrity.Core.ReferenceFile;
 using directoryIntegrity.Core.ReferenceFile.Naming;
 using directoryIntegrity.Core.Scan;
@@ -27,9 +27,6 @@ namespace directoryIntegrity.ConsoleApp
             var sw = Stopwatch.StartNew();
             var exitCode = ConsumeArguments(args);
             Console.WriteLine($"This operation took {sw.Elapsed.Format()}");
-
-            var mailCfg = new MailHelper().CreateMailConfiguration();
-            SendReportByMail(mailCfg);
 
             return exitCode;
         }
@@ -118,7 +115,9 @@ namespace directoryIntegrity.ConsoleApp
 
             var comparison = Scan();
 
-            PrintComparison(comparison.ToList());
+            var report = PrintComparison(comparison.ToList());
+
+            MailHelper.SendReportByMail(report, opts);
 
             return ExitCodes.Success;
         }
@@ -134,66 +133,75 @@ namespace directoryIntegrity.ConsoleApp
             return comparison;
         }
 
-        private static void PrintComparison(IList<FileSystemEntryComparison> comparison)
+        private static string PrintComparison(IList<FileSystemEntryComparison> comparison)
         {
             var comparisonResult = new DirectoryIntegrityResult(comparison);
 
-            Console.WriteLine($@"Intact folders: {comparisonResult.IntactDirectoriesCount}");
-            Console.WriteLine($@"Intact files: {comparisonResult.IntactFilesCount}");
+            var sb = new StringBuilder();
 
-            PrintRemoved(comparison);
-            PrintMoved(comparison);
-            PrintAdded(comparison);
+            sb.AppendLine($@"Intact folders: {comparisonResult.IntactDirectoriesCount}");
+            sb.AppendLine($@"Intact files: {comparisonResult.IntactFilesCount}");
+
+            sb.AppendLine(PrintRemoved(comparison));
+            sb.AppendLine(PrintMoved(comparison));
+            sb.AppendLine(PrintAdded(comparison));
+
+            return sb.ToString();
         }
 
-        private static void PrintMoved(IList<FileSystemEntryComparison> comparison)
+        private static string PrintMoved(IList<FileSystemEntryComparison> comparison)
         {
             var movedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved).ToList();
 
-            if (!movedEntries.Any()) return;
+            if (!movedEntries.Any()) return string.Empty;
 
-            Console.WriteLine("The following files and directories may have been moved:");
+            var sb = new StringBuilder();
+            sb.AppendLine("The following files and directories may have been moved:");
             foreach (var fseComparison in movedEntries)
             {
-                Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
+                sb.AppendLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
                 foreach (var movedFse in fseComparison.CurrentFileSystemEntries)
                 {
-                    Console.WriteLine($"\t=>{movedFse.Path}");
+                    sb.AppendLine($"\t=>{movedFse.Path}");
                 }
             }
+
+            return sb.ToString();
         }
 
-        private static void PrintAdded(IList<FileSystemEntryComparison> comparison)
+        private static string PrintAdded(IList<FileSystemEntryComparison> comparison)
         {
             var addedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Added).ToList();
 
-            if (!addedEntries.Any()) return;
+            if (!addedEntries.Any()) return string.Empty;
 
-            Console.WriteLine("The following files and directories has been added:");
+            var sb = new StringBuilder();
+            sb.AppendLine("The following files and directories has been added:");
 
             foreach (var fseComparison in addedEntries)
             {
-                Console.WriteLine(fseComparison.CurrentFileSystemEntries.Single().Path);
+                sb.AppendLine(fseComparison.CurrentFileSystemEntries.Single().Path);
             }
+
+            return sb.ToString();
         }
 
-        private static void PrintRemoved(IList<FileSystemEntryComparison> comparison)
+        private static string PrintRemoved(IList<FileSystemEntryComparison> comparison)
         {
             var removedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed).ToList();
 
-            if (!removedEntries.Any()) return;
+            if (!removedEntries.Any()) return string.Empty;
 
-            Console.WriteLine("The following files and directories has been removed:");
+            var sb = new StringBuilder();
+
+            sb.AppendLine("The following files and directories has been removed:");
 
             foreach (var fseComparison in removedEntries)
             {
-                Console.WriteLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
+                sb.AppendLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
             }
-        }
 
-        private static void SendReportByMail(MailConfiguration mailcfg)
-        {
-
+            return sb.ToString();
         }
     }
 }
