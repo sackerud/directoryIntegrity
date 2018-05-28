@@ -35,6 +35,18 @@ namespace directoryIntegrity.ConsoleApp
             return mailCfg;
         }
 
+        internal static void SendReportByMailDontThrow(string mailBody, ScanOptions opts)
+        {
+            try
+            {
+                SendReportByMail(mailBody, opts);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
         internal static void SendReportByMail(string mailBody, ScanOptions opts)
         {
             var mailCfg = CreateMailConfiguration();

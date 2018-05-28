@@ -116,7 +116,7 @@ namespace directoryIntegrity.ConsoleApp
 
             var report = PrintComparison(comparison.ToList());
 
-            MailHelper.SendReportByMail(report, opts);
+            MailHelper.SendReportByMailDontThrow(report, opts);
 
             return ExitCodes.Success;
         }
@@ -144,6 +144,8 @@ namespace directoryIntegrity.ConsoleApp
             sb.AppendLine(PrintRemoved(comparison));
             sb.AppendLine(PrintMoved(comparison));
             sb.AppendLine(PrintAdded(comparison));
+            sb.AppendLine();
+            sb.AppendLine(PrintComputerInfo());
 
             return sb.ToString();
         }
@@ -201,6 +203,11 @@ namespace directoryIntegrity.ConsoleApp
             }
 
             return sb.ToString();
+        }
+
+        private static string PrintComputerInfo()
+        {
+            return $"This job ran on {Environment.MachineName}";
         }
     }
 }
