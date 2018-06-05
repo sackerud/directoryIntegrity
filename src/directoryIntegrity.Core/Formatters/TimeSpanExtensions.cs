@@ -9,15 +9,25 @@ namespace directoryIntegrity.Core.Formatters
         {
             var sb = new StringBuilder();
 
-            if (duration.TotalHours >= 1)
-                sb.Append($"{duration.TotalHours}h ");
+            if (duration.Days == 1)
+                sb.Append($"{duration.Days} day ");
+
+            if (duration.Days > 1)
+                sb.Append($"{duration.Days} days ");
+
+            if (duration.Hours >= 1)
+                sb.Append($"{duration.Hours}h ");
+
+            if (duration.Minutes > 0)
+                sb.Append($"{duration.Minutes}m ");
 
             if (duration.Seconds >= 1)
                 sb.Append($"{duration.Seconds}s ");
 
-            sb.Append($"{duration.Milliseconds}ms");
+            if (duration.Milliseconds > 0)
+                sb.Append($"{duration.Milliseconds}ms");
 
-            return sb.ToString();
+            return sb.ToString().TrimEnd();
         }
     }
 }
