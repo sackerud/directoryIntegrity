@@ -6,7 +6,7 @@ namespace directoryIntegrity.Core.Mail
 {
     public class MailMessage
     {
-        public MailAddress Recipient { get; set; }
+        public IList<MailAddress> Recipients { get; set; } = new List<MailAddress>();
         public MailAddress Sender { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
