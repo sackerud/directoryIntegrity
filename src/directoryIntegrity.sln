@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.UnitTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.ConsoleApp", "directoryIntegrity.Console\directoryIntegrity.ConsoleApp.csproj", "{C6A24F82-9566-4CE4-BFBB-91D15B229F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "directoryIntegrity.Notification", "directoryIntegrity.Notification\directoryIntegrity.Notification.csproj", "{3DF0A70F-1085-41C0-A163-677B11859187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "directoryIntegrity.Notification", "directoryIntegrity.Notification\directoryIntegrity.Notification.csproj", "{3DF0A70F-1085-41C0-A163-677B11859187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "directoryIntegrity.IntegrationTests", "directoryIntegrity.IntegrationTests\directoryIntegrity.IntegrationTests.csproj", "{EDB78767-9A21-4861-B1A6-793165C0FE55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3DF0A70F-1085-41C0-A163-677B11859187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF0A70F-1085-41C0-A163-677B11859187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DF0A70F-1085-41C0-A163-677B11859187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDB78767-9A21-4861-B1A6-793165C0FE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB78767-9A21-4861-B1A6-793165C0FE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB78767-9A21-4861-B1A6-793165C0FE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB78767-9A21-4861-B1A6-793165C0FE55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

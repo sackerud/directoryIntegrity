@@ -114,9 +114,9 @@ namespace directoryIntegrity.ConsoleApp
 
             var comparison = Scan();
 
-            var report = PrintComparison(comparison.ToList());
+            var report = new ReportBuilder(comparison).Build();
 
-            MailHelper.SendReportByMailDontThrow(report, opts);
+            MailHelper.SendReportByMailDontThrow(report.ToString(), opts);
 
             return ExitCodes.Success;
         }
@@ -130,84 +130,6 @@ namespace directoryIntegrity.ConsoleApp
 
             var comparison = referenceFileContents.FirstOrDefault().CompareTo(scanResult.FirstOrDefault());
             return comparison;
-        }
-
-        private static string PrintComparison(IList<FileSystemEntryComparison> comparison)
-        {
-            var comparisonResult = new DirectoryIntegrityResult(comparison);
-
-            var sb = new StringBuilder();
-
-            sb.AppendLine($@"Intact folders: {comparisonResult.IntactDirectoriesCount}");
-            sb.AppendLine($@"Intact files: {comparisonResult.IntactFilesCount}");
-
-            sb.AppendLine(PrintRemoved(comparison));
-            sb.AppendLine(PrintMoved(comparison));
-            sb.AppendLine(PrintAdded(comparison));
-            sb.AppendLine();
-            sb.AppendLine(PrintComputerInfo());
-
-            return sb.ToString();
-        }
-
-        private static string PrintMoved(IList<FileSystemEntryComparison> comparison)
-        {
-            var movedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Moved).ToList();
-
-            if (!movedEntries.Any()) return string.Empty;
-
-            var sb = new StringBuilder();
-            sb.AppendLine("The following files and directories may have been moved:");
-            foreach (var fseComparison in movedEntries)
-            {
-                sb.AppendLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
-                foreach (var movedFse in fseComparison.CurrentFileSystemEntries)
-                {
-                    sb.AppendLine($"\t=>{movedFse.Path}");
-                }
-            }
-
-            return sb.ToString();
-        }
-
-        private static string PrintAdded(IList<FileSystemEntryComparison> comparison)
-        {
-            var addedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Added).ToList();
-
-            if (!addedEntries.Any()) return string.Empty;
-
-            var sb = new StringBuilder();
-            sb.AppendLine("The following files and directories has been added:");
-
-            foreach (var fseComparison in addedEntries)
-            {
-                sb.AppendLine(fseComparison.CurrentFileSystemEntries.Single().Path);
-            }
-
-            return sb.ToString();
-        }
-
-        private static string PrintRemoved(IList<FileSystemEntryComparison> comparison)
-        {
-            var removedEntries = comparison.Where(c => c.Result == FileSystemEntryComparisonResult.Removed).ToList();
-
-            if (!removedEntries.Any()) return string.Empty;
-
-            var sb = new StringBuilder();
-
-            sb.AppendLine("The following files and directories has been removed:");
-
-            foreach (var fseComparison in removedEntries)
-            {
-                sb.AppendLine($"{fseComparison.ReferenceFileSystemEntry.Path}");
-            }
-
-            return sb.ToString();
-        }
-
-        private static string PrintComputerInfo()
-        {
-            return $"This job ran on {Environment.MachineName}";
         }
     }
 }

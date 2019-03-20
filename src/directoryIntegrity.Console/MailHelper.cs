@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using directoryIntegrity.Core.Mail;
 using directoryIntegrity.Notification;
 using Microsoft.Extensions.Configuration;
@@ -55,7 +56,7 @@ namespace directoryIntegrity.ConsoleApp
             var msg = new MailMessage
             {
                 Sender = new MailAddress(mailCfg.Sender),
-                Recipient = new MailAddress(mailCfg.Recipient),
+                Recipients = mailCfg.Recipients.Select(m => new MailAddress(m)).ToList(),
                 Subject = $"Directory scan of {opts.DirectoryToScan}",
                 Body = mailBody
             };

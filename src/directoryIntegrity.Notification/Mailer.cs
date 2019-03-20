@@ -38,7 +38,12 @@ namespace directoryIntegrity.Notification
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(DefaultEncoding, msg.Sender.DisplayName ?? "", msg.Sender.Address));
-            message.To.Add(new MailboxAddress(DefaultEncoding, msg.Recipient.DisplayName ?? "", msg.Recipient.Address));
+
+            foreach (var recipient in msg.Recipients)
+            {
+                message.To.Add(new MailboxAddress(DefaultEncoding, recipient.DisplayName ?? "", recipient.Address));
+            }
+            
             message.Subject = msg.Subject;
             var textFormat = msg.IsHtml ? TextFormat.Html : TextFormat.Text;
             message.Body = new TextPart(textFormat)
